@@ -12,11 +12,47 @@ document.addEventListener("DOMContentLoaded", function () {
 	const searchInput = document.getElementById("searchInput");
 	const searchResults = document.getElementById("searchResults");
 	const modal = document.getElementById("rsvpModal");
+	const progressBar = document.querySelector(".rsvpModal__progress-bar");
+	const totalSteps = 5;
+
+	function updateProgress(currentStep) {
+		const progressPercentage = (currentStep / totalSteps) * 100;
+		progressBar.style.width = `${progressPercentage}%`;
+	}
 
 	// Abrir modal
 	document.getElementById("openRSVP").addEventListener("click", function () {
-		modal.style.display = "block";
+		modal.classList.add("rsvpModal__show");
+		updateProgress(1);
 	});
+
+	// Cerrar modal
+	const closeBtn = document.querySelector(".rsvpModal__close");
+	closeBtn.addEventListener("click", function () {
+		modal.classList.remove("rsvpModal__show");
+		setTimeout(resetForm, 300);
+	});
+
+	// Click fuera para cerrar
+	window.addEventListener("click", function (e) {
+		if (e.target === modal) {
+			modal.classList.remove("rsvpModal__show");
+			setTimeout(resetForm, 300);
+		}
+	});
+
+	function resetForm() {
+		formData.name = "";
+		formData.wedding = false;
+		formData.cocktail = false;
+		formData.phone = "";
+		formData.email = "";
+		formData.restrictions = "";
+
+		searchInput.value = "";
+		searchResults.innerHTML = "";
+		showStep(1);
+	}
 
 	// Búsqueda
 	searchInput.addEventListener("keyup", function (e) {
@@ -28,58 +64,51 @@ document.addEventListener("DOMContentLoaded", function () {
 		searchResults.innerHTML = filtered
 			.map(
 				(inv) =>
-					`<div onclick="selectInvitado('${inv.nombre}', ${inv.eventos})">${inv.nombre}</div>`
+					`<div class="rsvpModal__result" onclick="selectInvitado('${inv.nombre}', ${inv.eventos})">
+									${inv.nombre}
+							</div>`
 			)
 			.join("");
 	});
 
-	// Función global para seleccionar invitado
 	window.selectInvitado = function (nombre, eventos) {
 		formData.name = nombre;
 		showStep(2);
 		const eventsList = document.getElementById("eventsList");
 		eventsList.innerHTML = `
-					<div>
-							<h3>Wedding</h3>
-							<p>NUESTRO MATRIMONIO</p>
-							<p>October 12th, 2025 / 12 de Octubre 2025</p>
-							<p>Hacienda San José, Pareira - Colombia</p>
-							<p>5:30 P.M.</p>
-							<div class="guest-response">
-									<p>${nombre}</p>
-									<button onclick="acceptWedding()">Accept</button>
-									<button onclick="declineWedding()">Decline</button>
-							</div>
-							${
-								eventos === 2
-									? '<button onclick="nextStep(3)">Continue to Cocktail</button>'
-									: ""
-							}
-							<button onclick="prevStep(1)">Back</button>
-					</div>
-			`;
+        <div class="rsvpModal__event-content">
+            <h3>Wedding</h3>
+            <p>NUESTRO MATRIMONIO</p>
+            <p>October 12th, 2025 / 12 de Octubre 2025</p>
+            <p>Hacienda San José, Pareira - Colombia</p>
+            <p>5:30 P.M.</p>
+            <div class="guest-response">
+                <p>${nombre}</p>
+                <button class="rsvpModal__button" onclick="acceptWedding()">Accept</button>
+                <button class="rsvpModal__button" onclick="declineWedding()">Decline</button>
+            </div>
+            ${
+							eventos === 2
+								? '<button class="rsvpModal__button" onclick="nextStep(3)">Continue to Cocktail</button>'
+								: ""
+						}
+            <button class="rsvpModal__button" onclick="prevStep(1)">Back</button>
+        </div>
+    `;
 	};
 
+	// Funciones de Wedding
 	window.acceptWedding = function () {
 		formData.wedding = true;
-		const responseDiv = document.querySelector(".guest-response");
-		responseDiv.innerHTML = `
-        <p>${formData.name}</p>
-        <button class="selected" onclick="acceptWedding()">Accept</button>
-        <button onclick="declineWedding()">Decline</button>
-    `;
+		updateResponse("guest-response", true);
 	};
 
 	window.declineWedding = function () {
 		formData.wedding = false;
-		const responseDiv = document.querySelector(".guest-response");
-		responseDiv.innerHTML = `
-			<p>${formData.name}</p>
-			<button onclick="acceptWedding()">Accept</button>
-			<button class="selected" onclick="declineWedding()">Decline</button>
-	`;
+		updateResponse("guest-response", false);
 	};
 
+	// Funciones de Cocktail
 	window.showCocktail = function () {
 		const cocktailHtml = `
 					<h3>Welcome Cocktail</h3>
@@ -89,83 +118,68 @@ document.addEventListener("DOMContentLoaded", function () {
 					<p>5:00 P.M.</p>
 					<div class="guest-response-cocktail">
 							<p>${formData.name}</p>
-							<button onclick="acceptCocktail()">Accept</button>
-							<button onclick="declineCocktail()">Decline</button>
+							<button class="rsvp-button" onclick="acceptCocktail()">Accept</button>
+							<button class="rsvp-button" onclick="declineCocktail()">Decline</button>
 					</div>
-					<button onclick="prevStep(2)">Back</button>
-					<button onclick="nextStep(4)">Continue</button>
+					<button class="rsvp-button" onclick="prevStep(2)">Back</button>
+					<button class="rsvp-button" onclick="nextStep(4)">Continue</button>
 			`;
 		document.getElementById("step3").innerHTML = cocktailHtml;
 	};
 
 	window.acceptCocktail = function () {
 		formData.cocktail = true;
-		const responseDiv = document.querySelector(".guest-response-cocktail");
-		responseDiv.innerHTML = `
-        <p>${formData.name}</p>
-        <button class="selected" onclick="acceptCocktail()">Accept</button>
-        <button onclick="declineCocktail()">Decline</button>
-    `;
+		updateResponse("guest-response-cocktail", true);
 	};
 
 	window.declineCocktail = function () {
 		formData.cocktail = false;
-		const responseDiv = document.querySelector(".guest-response-cocktail");
-		responseDiv.innerHTML = `
-        <p>${formData.name}</p>
-        <button onclick="acceptCocktail()">Accept</button>
-        <button class="selected" onclick="declineCocktail()">Decline</button>
-    `;
+		updateResponse("guest-response-cocktail", false);
 	};
 
-	// Función global para mostrar pasos
+	function updateResponse(className, accepted) {
+		const responseDiv = document.querySelector(`.${className}`);
+		const buttons = responseDiv.querySelectorAll(".rsvpModal__button");
+		buttons.forEach((button) => button.classList.remove("selected"));
+		buttons[accepted ? 0 : 1].classList.add("selected");
+	}
+
+	// Navegación entre pasos
 	window.showStep = function (step) {
+		document.querySelectorAll(".rsvpModal__step").forEach((s) => {
+			s.classList.remove("rsvpModal__step--active");
+		});
 		document
-			.querySelectorAll(".step")
-			.forEach((s) => s.classList.remove("active"));
-		document.getElementById(`step${step}`).classList.add("active");
+			.getElementById(`step${step}`)
+			.classList.add("rsvpModal__step--active");
+		updateProgress(step);
+
 		if (step === 3) showCocktail();
 		if (step === 4) showAdditionalInfo();
 	};
 
-	window.showAdditionalInfo = function () {
-		const additionalHtml = `
-					<h3>Additional Info</h3>
-					<p>INFORMACIÓN ADICIONAL</p>
-					<input type="text" id="phone" placeholder="Phone / Teléfono">
-					<input type="email" id="email" placeholder="Email address (Correo Electrónico)">
-					<textarea id="restrictions" placeholder="Tell us if you have any food allergies or restrictions. Dinos si tienes alguna alergia o restricción alimentaria."></textarea>
-					<button onclick="prevStep(3)">Back</button>
-					<button onclick="submitRSVP()">R.S.V.P.</button>
-			`;
-		document.getElementById("step4").innerHTML = additionalHtml;
-	};
-
-	// Función global para anterior paso
 	window.prevStep = function (step) {
 		showStep(step);
 	};
 
-	// Función global para siguiente paso
 	window.nextStep = function (step) {
 		showStep(step);
 	};
 
-	window.showThanks = function () {
-		const thanksHtml = `
-					<h3>Thanks</h3>
-					<p>GRACIAS</p>
-					<p>Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.</p>
-					<p>Gracias por confirmar su asistencia a nuestra boda. Estamos muy contentos de compartir este día tan especial con ustedes. Le enviaremos una copia de su RSVP a su correo electrónico.</p>
-					<button onclick="backToHome()">BACK TO HOME</button>
+	// Info Adicional
+	window.showAdditionalInfo = function () {
+		document.getElementById("step4").innerHTML = `
+					<h3>Additional Info</h3>
+					<p>INFORMACIÓN ADICIONAL</p>
+					<input type="text" id="phone" placeholder="Phone / Teléfono">
+					<input type="email" id="email" placeholder="Email address (Correo Electrónico)">
+					<textarea id="restrictions" placeholder="Tell us if you have any food allergies or restrictions..."></textarea>
+					<button class="rsvp-button" onclick="prevStep(3)">Back</button>
+					<button class="rsvp-button" onclick="submitRSVP()">R.S.V.P.</button>
 			`;
-		document.getElementById("step5").innerHTML = thanksHtml;
 	};
 
-	window.backToHome = function () {
-		window.location.href = "/";
-	};
-
+	// Submit y Thanks
 	window.submitRSVP = function () {
 		formData.phone = document.getElementById("phone").value;
 		formData.email = document.getElementById("email").value;
@@ -198,14 +212,12 @@ document.addEventListener("DOMContentLoaded", function () {
 				.catch((error) => {
 					console.error("Error:", error);
 					alert(
-						`Hubo un error al enviar tu confirmación. Por favor intenta de nuevo. Error: ${error.message}`
+						`Hubo un error al enviar tu confirmación. Por favor intenta de nuevo.`
 					);
 				});
 		};
 
-		// Verificar si estamos en modo local
 		if (wpData.isLocal) {
-			console.log("Modo local: saltando reCAPTCHA");
 			submitData();
 		} else {
 			grecaptcha.ready(function () {
@@ -237,10 +249,28 @@ document.addEventListener("DOMContentLoaded", function () {
 					.catch((error) => {
 						console.error("Error:", error);
 						alert(
-							`Hubo un error al enviar tu confirmación. Por favor intenta de nuevo. Error: ${error.message}`
+							`Hubo un error al enviar tu confirmación. Por favor intenta de nuevo.`
 						);
 					});
 			});
 		}
 	};
+
+	window.showThanks = function () {
+		document.getElementById("step5").innerHTML = `
+					<h3>Thanks</h3>
+					<p>GRACIAS</p>
+					<p>Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you.</p>
+					<p>Gracias por confirmar su asistencia a nuestra boda. Estamos muy contentos de compartir este día tan especial contigo.</p>
+					<button class="rsvp-button" onclick="closeModal()">Close</button>
+			`;
+	};
+
+	window.closeModal = function () {
+		modal.classList.remove("rsvpModal__show");
+		setTimeout(resetForm, 300);
+	};
+
+	// Inicializar
+	updateProgress(1);
 });

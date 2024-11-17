@@ -1,10 +1,16 @@
 <!-- template-parts/rsvp-button.php -->
 <button id="openRSVP">RSVP</button>
 
-<div id="rsvpModal" class="modal">
-    <div class="modal-content">
+<div id="rsvpModal" class="rsvpModal">
+    <div class="rsvpModal-content">
+
+        <span class="rsvpModal__close">&times;</span>
+
+        <div class="rsvpModal__progress">
+            <div class="rsvpModal__progress-bar"></div>
+        </div>
         <!-- Step 1: Search -->
-        <div id="step1" class="step active">
+        <div id="step1" class="rsvpModal__step rsvpModal__step--active">
             <h3>Maria & Patrick</h3>
             <p>WEDDING RSVP</p>
             <p>Please enter below your First Name and your Last Name, all in capitals.</p>
@@ -13,7 +19,7 @@
         </div>
 
         <!-- Step 2: Wedding -->
-        <div id="step2" class="step">
+        <div id="step2" class="rsvpModal__step">
             <h3>Wedding</h3>
             <p>NUESTRO MATRIMONIO</p>
             <p>October 12th, 2025 / 12 de Octubre 2025</p>
@@ -29,7 +35,7 @@
         </div>
 
         <!-- Step 3: Cocktail -->
-        <div id="step3" class="step">
+        <div id="step3" class="rsvpModal__step">
             <h3>Welcome Cocktail</h3>
             <p>COCTEL DE BIENVENIDA</p>
             <p>October 11th, 2025 / 11 de Octubre 2025</p>
@@ -45,7 +51,7 @@
         </div>
 
         <!-- Step 4: Additional Info -->
-        <div id="step4" class="step">
+        <div id="step4" class="rsvpModal__step">
             <h3>Additional Info</h3>
             <p>INFORMACIÓN ADICIONAL</p>
             <input type="text" id="phone" placeholder="Phone / Teléfono">
@@ -56,12 +62,12 @@
         </div>
 
         <!-- Step 5: Thanks -->
-        <div id="step5" class="step">
+        <div id="step5" class="rsvpModal__step">
             <h3>Thanks</h3>
             <p>GRACIAS</p>
             <p>Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.</p>
             <p>Gracias por confirmar su asistencia a nuestra boda. Estamos muy contentos de compartir este día tan especial con ustedes. Le enviaremos una copia de su RSVP a su correo electrónico.</p>
-            <button onclick="backToHome()">BACK TO HOME</button>
+            <button class="rsvpModal__button" onclick="backToHome()">BACK TO HOME</button>
         </div>
     </div>
 </div>

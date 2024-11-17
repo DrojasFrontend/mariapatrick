@@ -457,7 +457,6 @@ body {
 
 /* Section */
 .section {
-	
 }
 
 .box {
@@ -966,41 +965,125 @@ input[type="radio"]:checked + span:before {
 }
 
 /* assets/css/rsvp.css */
-.modal {
+.rsvpModal {
 	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
-	background: rgba(0,0,0,0.8);
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
 }
 
-.modal-content {
+.rsvpModal__content {
+	position: relative;
 	background: white;
+	width: 100%;
+	height: 100vh;
+	overflow-y: auto;
+}
+
+.rsvpModal__inner {
 	max-width: 500px;
-	margin: 50px auto;
-	padding: 20px;
+	margin: 0 auto;
+	padding: 40px 20px;
 }
 
-.step {
-	display: none;
-}
-
-.step.active {
-	display: block;
-}
-
-#searchResults div {
-	padding: 10px;
+.rsvpModal__close {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	font-size: 24px;
 	cursor: pointer;
+	color: #666;
+	z-index: 1001;
 }
 
-#searchResults div:hover {
-	background: #f5f5f5;
+.rsvpModal__progress {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: #eee;
+	z-index: 1002;
 }
 
-.selected {
-	background-color: #4CAF50;
+.rsvpModal__progress-bar {
+	height: 100%;
+	background: #4caf50;
+	width: 0;
+	transition: width 0.3s ease;
+}
+
+.rsvpModal__show {
+	display: block;
+	animation: rsvpFadeIn 0.3s;
+}
+
+/* Steps */
+.rsvpModal__step {
+	display: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.rsvpModal__step--active {
+	display: block;
+	opacity: 1;
+}
+
+/* Botones */
+.rsvpModal__button {
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	background: #4caf50;
 	color: white;
+}
+
+.rsvpModal__button.selected {
+	background: #2e7d32;
+}
+
+.rsvpModal__result {
+	padding: 10px;
+	margin: 5px 0;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.rsvpModal__result:hover {
+	background-color: #f5f5f5;
+}
+
+.rsvpModal__button {
+	padding: 10px 20px;
+	margin: 5px;
+	cursor: pointer;
+	background: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+}
+
+.rsvpModal__button.selected {
+	background: #2e7d32;
+}
+
+#searchResults {
+	max-height: 200px;
+	overflow-y: auto;
+	margin-top: 10px;
+}
+
+/* Animaciones */
+@keyframes rsvpFadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
