@@ -1,0 +1,10 @@
+$bosque-font-path: "../../font/bosque" !default;
+
+@font-face {
+  font-family: "BOSQUE";
+  src: url("#{$bosque-font-path}/BOSQUE.woff2") format("woff2"),
+    url("#{$bosque-font-path}/BOSQUE.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

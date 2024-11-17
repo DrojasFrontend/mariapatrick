@@ -1,0 +1,10 @@
+$rodetta-font-path: "../../font/rodetta" !default;
+// regular
+@font-face {
+  font-family: "Rodetta";
+  src: url("#{$rodetta-font-path}/Rodetta.woff2") format("woff2"),
+    url("#{$rodetta-font-path}/Rodetta.woff") format("woff"),
+    url("#{$rodetta-font-path}/Rodetta.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

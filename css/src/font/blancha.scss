@@ -1,0 +1,10 @@
+$blancha-font-path: "../../font/blancha" !default;
+
+@font-face {
+  font-family: "Blancha";
+  src: url("#{$blancha-font-path}/Blancha.woff2") format("woff2"),
+    url("#{$blancha-font-path}/Blancha.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

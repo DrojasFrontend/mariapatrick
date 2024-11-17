@@ -1,0 +1,31 @@
+$hatton-font-path: "../../font/hatton" !default;
+
+@font-face {
+  font-family: "PP Hatton";
+  src: url("#{$hatton-font-path}/PPHatton-Medium.woff2") format("woff2"),
+    url("#{$hatton-font-path}/PPHatton-Medium.woff") format("woff"),
+    url("#{$hatton-font-path}/PPHatton-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Hatton";
+  src: url("#{$hatton-font-path}/PPHatton-Ultralight.woff2") format("woff2"),
+    url("#{$hatton-font-path}/PPHatton-Ultralight.woff") format("woff"),
+    url("#{$hatton-font-path}/PPHatton-Ultralight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Hatton";
+  src: url("#{$hatton-font-path}/PPHatton-Bold.woff2") format("woff2"),
+    url("#{$hatton-font-path}/PPHatton-Bold.woff") format("woff"),
+    url("#{$hatton-font-path}/PPHatton-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

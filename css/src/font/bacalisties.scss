@@ -1,0 +1,11 @@
+$bacalisties-font-path: "../../font/bacalisties" !default;
+
+@font-face {
+  font-family: "Bacalisties";
+  src: url("#{$bacalisties-font-path}/Bacalisties.woff2") format("woff2"),
+    url("#{$bacalisties-font-path}/Bacalisties.woff") format("woff"),
+    url("#{$bacalisties-font-path}/Bacalisties.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

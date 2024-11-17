@@ -1,0 +1,10 @@
+$nesans-font-path: "../../font/nesans" !default;
+
+@font-face {
+  font-family: "NesansSemiBold";
+  src: url("#{$nesans-font-path}/NesansSemiBold.woff2") format("woff2"),
+    url("#{$nesans-font-path}/NesansSemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

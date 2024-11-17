@@ -1,0 +1,10 @@
+$dating-font-path: "../../font/dating" !default;
+
+@font-face {
+  font-family: "Dating";
+  src: url("#{$dating-font-path}/Dating.woff2") format("woff2"),
+    url("#{$dating-font-path}/Dating.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

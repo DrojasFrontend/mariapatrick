@@ -1,0 +1,10 @@
+$romes-font-path: "../../font/romes" !default;
+
+@font-face {
+  font-family: "Romes";
+  src: url("#{$romes-font-path}/Romes.woff2") format("woff2"),
+    url("#{$romes-font-path}/Romes.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
