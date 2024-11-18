@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
 
   <!-- wordpress header includes -->
@@ -48,25 +49,25 @@
 </div> -->
 
 <!-- Header -->
-<header class="header <?php if(is_page('gift') || is_page('story')) { ?>active<?php } ?>" data-header>
-  <a href="/" class="header__menu-mobile">
-    <img src="<?php echo IMG_BASE . 'logo.svg' ?>" class="header__logo" alt="" id="" />
-  </a>
-  <nav>
-    <ul class="header__menu">
-      <li><a data-link class="header__link" href="/#wedding">Wedding</a></li>
-      <li><a data-link class="header__link" href="/#events">Events</a></li>
-      <li><a data-link class="header__link-logo" href="/">DANIELA & SPENCER</a></li>
-      <li>
-        <a data-link class="header__link" href="/#cartagena">CARTAGENA</a>
-      </li>
-      <li><a data-link class="header__link" href="/#rsvp">R.S.V.P.</a></li>
-    </ul>
-  </nav>
-  <button type="button" class="header__button" data-toggle-menu>
-    <img class="icon-menu" src="<?php echo IMG_BASE . 'icon-menu.svg' ?>" id="icon-menu" alt="" />
-    <img class="icon-close" src="<?php echo IMG_BASE . 'icon-close.svg' ?>" id="icon-close" alt="" />
-  </button>
+<header class="header logo-link <?php echo is_page('gifts') || is_page('places') ? 'active' : ''; ?>" data-header>
+  <div class="header__wrapper">
+    <a href="/" class="header__logo">
+      <img src="<?php echo IMG_BASE . 'logo.svg' ?>" class="" alt="" id="" />
+    </a>
+    <nav>
+      <ul class="header__menu">
+        <li><a data-link class="header__link" href="/#wedding">WEDDING</a></li>
+        <li><a data-link class="header__link" href="/#pereira">PEREIRA</a></li>
+        <li><a data-link class="header__link-button " href="/#r-s-v-p">R.S.V.P.</a></li>
+        <!-- <li><a data-link class="header__link" href="/#rsvp">R.S.V.P.</a></li>
+        <li><a data-link class="header__link" href="/#cartagena">CARTAGENA</a></li> -->
+      </ul>
+    </nav>
+    <button type="button" class="header__button" data-toggle-menu>
+      <img class="icon-menu" src="<?php echo IMG_BASE . 'icon-menu.svg' ?>" id="icon-menu" alt="" />
+      <img class="icon-close" src="<?php echo IMG_BASE . 'icon-close.svg' ?>" id="icon-close" alt="" />
+    </button>
+  </div>
 </header>
 <!-- Fin Header -->
 
@@ -74,13 +75,12 @@
 <section class="menu-mobile" data-menu-mobile>
   <nav>
     <ul class="header__menu">
-      <li><a data-link class="header__link" href="/#wedding">Wedding</a></li>
-      <li><a data-link class="header__link" href="/#events">Events</a></li>
-      <li><a data-link class="header__link-logo" href="/">DANIELA & SPENCER</a></li>
-      <li>
-        <a data-link class="header__link" href="/#cartagena">CARTAGENA</a>
-      </li>
+      <li><a data-link class="header__link" href="/#wedding">WEDDING</a></li>
+      <li><a data-link class="header__link" href="/#pereira">PEREIRA</a></li>
+      <li><a data-link class="header__link header__link-button " href="/#r-s-v-p">R.S.V.P.</a></li>
+      <!-- <li><a data-link class="header__link-logo" href="/">DANIELA & SPENCER</a></li>
       <li><a data-link class="header__link" href="/#rsvp">R.S.V.P.</a></li>
+      <li><a data-link class="header__link" href="/#cartagena">CARTAGENA</a></li> -->
     </ul>
   </nav>
 </section>

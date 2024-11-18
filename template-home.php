@@ -13,11 +13,7 @@ get_header();
     <!-- SECTION 2 -->
     <?php get_template_part('template-parts/section', '2'); ?>
     <!-- SECTION 2 -->
-
-    <!-- SECTION 3 -->
-     <?php get_template_part('template-parts/section', '3'); ?>
-    <!-- SECTION 3 -->
-
+     
     <!-- SECTION 4 -->
     <?php get_template_part('template-parts/section', '4'); ?>
     <!-- SECTION 4 -->
@@ -25,6 +21,10 @@ get_header();
     <!-- SECTION 5 -->
     <?php get_template_part('template-parts/section', '5'); ?>
     <!-- SECTION 5 -->
+
+    <!-- SECTION 6 -->
+    <?php get_template_part('template-parts/section', '6'); ?>
+    <!-- SECTION 6 -->
 
  
 

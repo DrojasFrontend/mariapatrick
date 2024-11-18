@@ -1,73 +1,60 @@
-<!-- template-parts/rsvp-button.php -->
-<button id="openRSVP">RSVP</button>
+<section class="section1">
+  <div class="section1__img">
+    <img src="<?php echo IMG_BASE . 'img-1.png'?>" alt="">
+  </div>
+  <div class="section1__content">
+    <img src="<?php echo IMG_BASE . 'img-2.png'?>" alt="">
+    <h2 class="heading--96 color--F7F1DA">Maria & Patrick</h2>
+    <p class="heading--36 color--F7F1DA">12 | 10 | 2025</p>
+    <span class="space space--20"></span>
+    <p class="heading--18 color--F7F1DA">PEREIRA, COLOMBIA</p>
+    
+    <div class="box">
+      <img src="<?php echo IMG_BASE . 'paper-2.svg'?>" alt="">
+      <div class="box__wrapper">
+        <h2 class="heading--96 color--8F6C04">Wedding</h2>
+        <p class="heading--18 color--4F4F4F">NUESTRO MATRIMONIO</p>
+        <span class="space space--30"></span>
+        <span class="line line--small"></span>
 
-<div id="rsvpModal" class="rsvpModal">
-    <div class="rsvpModal-content">
+        <span class="space space--40"></span>
+        <p class="heading--18 color--4F4F4F">SUNDAY / DOMINGO</p>
+        <span class="space space--10"></span>
+        <p class="heading--32 color--8F6C04">October 12th, 2025</p>
+        <span class="space space--10"></span>
+        <p class="heading--18 color--4F4F4F">12 de OCTUBRE 2025</p>
+        <span class="space space--20"></span>
+        <p class="heading--18 color--4F4F4F">3:30 p.m.</p>
 
-        <span class="rsvpModal__close">&times;</span>
+        <span class="space space--20"></span>
+        <p class="heading--24 color--8F6C04">Hacienda San José</p>
+        <p class="heading--14 color--4F4F4F">PEREIRA, COLOMBIA</p>
+        <span class="space space--20"></span>
+        <a href="#" class="button button--primary button--center" target="_blank">VIEW MAP</a>
+        <span class="space space--30"></span>
 
-        <div class="rsvpModal__progress">
-            <div class="rsvpModal__progress-bar"></div>
+        <h2 class="heading--54 color--8F6C04">Dress Code</h2>
+        <span class="space space--30"></span>
+
+        <div class="grid grid--2">
+          <div>
+            <p class="heading--14 color--8F6C04">MEN/HOMBRES</p>
+            <p class="heading--18 color--4F4F4F spacing--normal">Khaki trousers and </p>
+            <p class="heading--18 color--4F4F4F spacing--normal">white linen shirt</p>
+            <span class="space space--10"></span>
+            <p class="heading--14 color--4F4F4F spacing--normal line--height-normal">Pantalón caqui y </p>
+            <p class="heading--14 color--4F4F4F spacing--normal line--height-normal">camisa blanca de lino</p>
+          </div>
+          <div>
+            <p class="heading--14 color--8F6C04">WOMEN/MUJERES</p>
+            <p class="heading--18 color--4F4F4F spacing--normal">Colorful</p>
+            <p class="heading--18 color--4F4F4F spacing--normal">long dress</p>
+            <span class="space space--10"></span>
+            <p class="heading--14 color--4F4F4F spacing--normal line--height-normal">Vestido largo</p>
+            <p class="heading--14 color--4F4F4F spacing--normal line--height-normal">de colores</p>
+          </div>
         </div>
-        <!-- Step 1: Search -->
-        <div id="step1" class="rsvpModal__step rsvpModal__step--active">
-            <h3>Maria & Patrick</h3>
-            <p>WEDDING RSVP</p>
-            <p>Please enter below your First Name and your Last Name, all in capitals.</p>
-            <input type="text" id="searchInput" placeholder="Full Name">
-            <div id="searchResults"></div>
-        </div>
-
-        <!-- Step 2: Wedding -->
-        <div id="step2" class="rsvpModal__step">
-            <h3>Wedding</h3>
-            <p>NUESTRO MATRIMONIO</p>
-            <p>October 12th, 2025 / 12 de Octubre 2025</p>
-            <p>Hacienda San José, Pareira - Colombia</p>
-            <p>5:30 P.M.</p>
-            <div class="guest-response">
-                <p>Name Guest 1</p>
-                <button onclick="acceptWedding()">Accept</button>
-                <button onclick="declineWedding()">Decline</button>
-            </div>
-            <button onclick="prevStep(1)">Back</button>
-            <button onclick="nextStep(3)">Continue</button>
-        </div>
-
-        <!-- Step 3: Cocktail -->
-        <div id="step3" class="rsvpModal__step">
-            <h3>Welcome Cocktail</h3>
-            <p>COCTEL DE BIENVENIDA</p>
-            <p>October 11th, 2025 / 11 de Octubre 2025</p>
-            <p>Hacienda San Jorge, Pereira - Colombia</p>
-            <p>5:00 P.M.</p>
-            <div class="guest-response">
-                <p>Name Guest 1</p>
-                <button onclick="acceptCocktail()">Accept</button>
-                <button onclick="declineCocktail()">Decline</button>
-            </div>
-            <button onclick="prevStep(2)">Back</button>
-            <button onclick="nextStep(4)">Continue</button>
-        </div>
-
-        <!-- Step 4: Additional Info -->
-        <div id="step4" class="rsvpModal__step">
-            <h3>Additional Info</h3>
-            <p>INFORMACIÓN ADICIONAL</p>
-            <input type="text" id="phone" placeholder="Phone / Teléfono">
-            <input type="email" id="email" placeholder="Email address (Correo Electrónico)">
-            <textarea id="restrictions" placeholder="Tell us if you have any food allergies or restrictions. Dinos si tienes alguna alergia o restricción alimentaria."></textarea>
-            <button onclick="prevStep(3)">Back</button>
-            <button onclick="submitRSVP()">R.S.V.P.</button>
-        </div>
-
-        <!-- Step 5: Thanks -->
-        <div id="step5" class="rsvpModal__step">
-            <h3>Thanks</h3>
-            <p>GRACIAS</p>
-            <p>Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.</p>
-            <p>Gracias por confirmar su asistencia a nuestra boda. Estamos muy contentos de compartir este día tan especial con ustedes. Le enviaremos una copia de su RSVP a su correo electrónico.</p>
-            <button class="rsvpModal__button" onclick="backToHome()">BACK TO HOME</button>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
