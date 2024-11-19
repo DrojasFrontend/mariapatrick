@@ -563,13 +563,19 @@ img {
 				position: relative;
 
 				@media only screen and (min-width: 1024px) {
-					padding: 60px 0;
+					padding: 30px 0 60px;
 				}
 			}
 		}
 	}
 
 	&2 {
+		background-image: url(../../img/paper-3.png);
+
+		@media only screen and (min-width: 1024px) {
+			padding-top: 100px;
+			margin-top: -164px;
+		}
 		&__wrapper {
 			padding: 70px 0 50px;
 			text-align: center;
@@ -860,6 +866,7 @@ img {
 				padding: 20px;
 				background-color: var(--F9F6EC);
 				filter: drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.15));
+				text-decoration: none;
 			}
 
 			&-padding {
@@ -909,17 +916,18 @@ img {
 	}
 
 	&6 {
-		overflow: hidden;
-
 		@media only screen and (min-width: 1024px) {
 		}
 		&__bckg {
-			margin-top: -260px;
-			padding: 340px 0 0;
+			margin-top: 40px;
+			padding-top: 40px;
 			background-color: var(--D5D9D0);
+			overflow: hidden;
 
 			@media only screen and (min-width: 1024px) {
-				height: 1070px;
+				margin-top: -332px;
+				padding-top: 400px;
+				height: 1160px;
 			}
 		}
 

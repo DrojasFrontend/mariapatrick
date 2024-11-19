@@ -1,6 +1,7 @@
 <?php 
 $places = [
   [
+    "id" => "",
     "name" => "SALENTO y VALLE DEL COCORA",
     "img" => IMG_BASE . 'img-8.png',
     "descripcion_en" => "One of our favorite places in the Coffee Region, just 45 minutes from Pereira. Salento is a magical town full of colors and charm, perfect for a day trip.",
@@ -15,6 +16,7 @@ $places = [
     "detalle_4_es" => "<span class='color--8F6C04 uppercase'><strong>Imperdible:</strong></span> Una caminata por el valle o un paseo a caballo mientras te rodea la belleza natural de este lugar único",
   ],
   [
+    "id" => "termales",
     "name" => "TERMALES DEL RUIZ",
     "img" => IMG_BASE . 'places/place-2.png',
     "descripcion_en" => "A unique experience in Manizales, 2 hours and 30 minutes from Pereira. A spectacular hotel with thermal pools.",
@@ -27,6 +29,7 @@ $places = [
     "detalle_3_es" => "<span class='color--8F6C04 uppercase'><strong>Para ver:</strong></span> Las piscinas de aguas termales rodeadas de montañas y naturaleza.",
   ],
   [
+    "id" => "finlandia",
     "name" => "FINLANDIA QUINDIO",
     "img" => IMG_BASE . 'places/place-3.png',
     "descripcion_en" => "Our favorite town in the Coffee Region, just 45 minutes from Pereira. A picture-perfect place, surrounded by stunning landscapes and amazing food.",
@@ -39,6 +42,7 @@ $places = [
     "detalle_3_es" => "<span class='color--8F6C04 uppercase'><strong>Para ver:</strong></span> El Mirador Colina Iluminada, con una vista increíble y un buen cafecito.",
   ],
   [
+    "id" => "",
     "name" => "FINCA CAFETERA BUENOS AIRES",
     "img" => IMG_BASE . 'places/place-4.png',
     "descripcion_en" => "Coming to the coffee land is never complete without tour an authentic coffee farm, and Buenos Aires is out favorite option.",
@@ -51,6 +55,7 @@ $places = [
     "detalle_3_es" => "<span class='color--8F6C04 uppercase'><strong>Para ver:</strong></span> El proceso de cómo cada grano llega a nuestras tazas todas las mañanas",
   ],
   [
+    "id" => "",
     "name" => "EL NIDO DEL CONDOR",
     "img" => IMG_BASE . 'places/place-5.png',
     "descripcion_en" => "A strategic place to catch a glimpse or enjoy sighting different bird species, especially the couple of Andean condors that nest on the plateau, one of the three known Andean condor nests in the country.",
@@ -77,7 +82,7 @@ $places = [
 
       <div class="section7__places">
         <?php foreach ($places as $place) { ?>
-          <div class="section7__place-box">
+          <div class="section7__place-box" id="<?php echo $place['id']?>">
             <img src="<?php echo $place['img']?>" alt="">
             <span class="space space--30"></span>
             <h2 class="heading--28 color--627463"><?php echo $place['name']?></h2>

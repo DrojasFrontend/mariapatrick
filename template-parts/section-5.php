@@ -89,23 +89,23 @@
           </div>
         </div>
         <div class="section5__places-right">
-          <div class="section5__places-box">
+          <a href="/pereira/#termales" class="section5__places-box">
             <img src="<?php echo IMG_BASE . 'img-9.png'?>" alt="">
             <span class="space space--10"></span>
             <h2 class="heading--28 color--627463">TERMALES <br> DEL RUIZ</h2>
-          </div>
+          </a>
 
-          <div class="section5__places-box">
+          <a href="/pereira/#finlandia" class="section5__places-box">
             <img src="<?php echo IMG_BASE . 'img-10.png'?>" alt="">
             <span class="space space--10"></span>
             <h2 class="heading--28 color--627463">FINLANDIA, <br> QUINDIO</h2>
-          </div>
+          </a>
 
           <img class="section5__places-img visibleDesktop" src="<?php echo IMG_BASE . 'img-7.png'?>" alt="">
         </div>
       </div>
     </div>
   </div>
-  <img class="section5__img section5__img-left visibleDesktop" src="<?php echo IMG_BASE . 'img-11.png'?>" alt="">
-  <img class="section5__img section5__img-right visibleDesktop" src="<?php echo IMG_BASE . 'img-12.png'?>" alt="">
+  <!-- <img class="section5__img section5__img-left visibleDesktop" src="<?php echo IMG_BASE . 'img-11.png'?>" alt=""> -->
+  <!-- <img class="section5__img section5__img-right visibleDesktop" src="<?php echo IMG_BASE . 'img-12.png'?>" alt=""> -->
 </section>
