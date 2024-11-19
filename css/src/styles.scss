@@ -538,13 +538,15 @@ img {
 
 		.box {
 			margin-top: 40px;
-			background-image: url(../../img/paper-3.png);
+			background-image: url(../../img/paper-1-mobile.webp);
+			border-radius: 0;
 
 			@media only screen and (min-width: 1024px) {
 				max-width: 980px;
 				margin-top: 0;
 				padding: 90px 50px;
 				background-image: none;
+				border-radius: 30px;
 			}
 
 			img {
@@ -658,7 +660,7 @@ img {
 
 			&-bottom {
 				position: relative;
-				padding: 50px 0 0;
+				padding: 0 0 0;
 				text-align: center;
 
 				@media only screen and (min-width: 1024px) {
@@ -669,7 +671,7 @@ img {
 
 		.box {
 			margin-top: 0;
-			background-image: url(../../img/paper-3.png);
+			background-image: url(../../img/paper-2-mobile.webp);
 
 			@media only screen and (min-width: 1024px) {
 				max-width: 835px;
@@ -691,6 +693,7 @@ img {
 
 			&__wrapper {
 				position: relative;
+				padding: 40px 0;
 
 				@media only screen and (min-width: 1024px) {
 					padding: 60px 0 0;
@@ -769,7 +772,7 @@ img {
 		}
 
 		&__bckg {
-			margin-top: -700px;
+			margin-top: -600px;
 			padding: 0;
 			// background-image: url(../../img/img-6.webp);
 			background-position: center;
@@ -819,9 +822,13 @@ img {
 			&-img {
 				position: relative;
 				text-align: center;
+				width: 70%;
+				margin: 0 auto;
 
 				@media only screen and (min-width: 1024px) {
 					text-align: left;
+					width: auto;
+					margin: 0;
 				}
 			}
 
@@ -897,7 +904,7 @@ img {
 
 			&-img {
 				max-width: fit-content;
-				transform: translateX(-44px);
+				transform: translate(-44px, -44px);
 			}
 		}
 
@@ -975,8 +982,11 @@ img {
 		}
 
 		&__img {
+			position: relative;
+			margin-top: -100px;
 			@media only screen and (min-width: 1024px) {
 				transform: translateX(-100px);
+				margin-top: 0;
 			}
 		}
 	}

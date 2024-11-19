@@ -2,7 +2,7 @@
 $places = [
   [
     "en" => "HOTELS",
-    "es" => "HOTELS",
+    "es" => "HOTELES",
     "link" => "/places/#hoteles"
   ],
   [

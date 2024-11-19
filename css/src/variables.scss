@@ -126,11 +126,15 @@
 	}
 
 	&--26 {
-		font-size: 26px;
+		font-size: 20px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: normal;
-		letter-spacing: 2.6px;
+		letter-spacing: 2px;
+
+		@media only screen and (min-width: 1024px) {
+			font-size: 26px;
+		}
 	}
 
 	&--28 {
@@ -258,6 +262,15 @@
 		@media only screen and (min-width: 1024px) {
 			min-width: 200px;
 		}
+	}
+
+	&--green {
+		height: 70px;
+		font-size: 28px;
+		width: 100%;
+		color: var(--FFF);
+		letter-spacing: 2.8px;
+		background-color: var(--627463);
 	}
 
 	&--small {

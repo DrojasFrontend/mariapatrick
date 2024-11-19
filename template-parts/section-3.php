@@ -20,7 +20,7 @@
 
         <span class="space space--40"></span>
 
-        <a href="" class="button button--primary button--center" target="_blank">LINK</a>
+        <a href="futbolpazifico.org" class="button button--primary button--center" target="_blank">LINK</a>
 
         <span class="space space--50"></span>
         <span class="space space--50 visibleDesktop"></span>

@@ -30,7 +30,7 @@
         <p class="heading--24 color--8F6C04">Hacienda San José</p>
         <p class="heading--14 color--4F4F4F">PEREIRA, COLOMBIA</p>
         <span class="space space--20"></span>
-        <a href="#" class="button button--primary button--center" target="_blank">VIEW MAP</a>
+        <a href="https://maps.app.goo.gl/8LRbpukmAz1yokLK9" class="button button--primary button--center" target="_blank">VIEW MAP</a>
         <span class="space space--30"></span>
 
         <h2 class="heading--54 color--8F6C04">Dress Code</h2>

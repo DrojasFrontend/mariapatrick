@@ -4,7 +4,7 @@
     <div class="container">
       <div class="section5__title">
         <h2 class="heading--96 color--8F6C04">Pereira, Colombia</h2>
-        <p class="heading--18 color--4F4F4F">¡TRAVEL to THE EJE CAFETERO DE COLOMBIA!</p>
+        <p class="heading--18 color--4F4F4F">¡TRAVEL TO THE EJE CAFETERO DE COLOMBIA!</p>
       </div>
     </div>
 
@@ -100,6 +100,8 @@
             <span class="space space--10"></span>
             <h2 class="heading--28 color--627463">FINLANDIA, <br> QUINDIO</h2>
           </a>
+
+          <a href="/pereira/" class="button button--center button--green">VER MÁS</a>
 
           <img class="section5__places-img visibleDesktop" src="<?php echo IMG_BASE . 'img-7.png'?>" alt="">
         </div>
