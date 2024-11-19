@@ -161,3 +161,37 @@ function my_theme_setup() {
         'flex-width' => true,
     ));
 }
+
+// Permitir subida de archivos SVG
+function permitir_svg($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'permitir_svg');
+
+// Corregir el tipo MIME para SVG
+function corregir_mime_svg($data, $file, $filename, $mimes) {
+    $ext = isset($data['ext']) ? $data['ext'] : '';
+    if ($ext === 'svg') {
+        $data['type'] = 'image/svg+xml';
+        $data['ext'] = 'svg';
+    } elseif ($ext === 'svgz') {
+        $data['type'] = 'image/svg+xml';
+        $data['ext'] = 'svgz';
+    }
+    return $data;
+}
+add_filter('wp_check_filetype_and_ext', 'corregir_mime_svg', 10, 4);
+
+// Mostrar vista previa de SVG en el Media Library
+function mostrar_svg_media_library() {
+    echo '
+    <style>
+        .attachment-266x266, .thumbnail img {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>';
+}
+add_action('admin_head', 'mostrar_svg_media_library');
