@@ -1,0 +1,12 @@
+$wildoaklands-font-path: "../../font/wildoaklands" !default;
+
+@font-face {
+  font-family: 'WildOaklands';
+  src: url('#{$wildoaklands-font-path}/WildOaklands-Regular.woff2') format('woff2'),
+      url('#{$wildoaklands-font-path}/WildOaklands-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+

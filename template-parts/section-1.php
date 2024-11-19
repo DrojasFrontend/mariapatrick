@@ -6,7 +6,7 @@
     <img src="<?php echo IMG_BASE . 'img-2.png'?>" alt="">
     <h2 class="heading--96 color--F7F1DA">Maria & Patrick</h2>
     <p class="heading--36 color--F7F1DA">12 | 10 | 2025</p>
-    <span class="space space--20"></span>
+    <span class="space space--20" id="wedding"></span>
     <p class="heading--18 color--F7F1DA">PEREIRA, COLOMBIA</p>
     
     <div class="box">

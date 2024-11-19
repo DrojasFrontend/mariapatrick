@@ -3,17 +3,17 @@ $places = [
   [
     "en" => "HOTELS",
     "es" => "HOTELS",
-    "link" => "#"
+    "link" => "/places/#hoteles"
   ],
   [
     "en" => "RESTAURANTS",
     "es" => "RESTAURANTES",
-    "link" => "#"
+    "link" => "/places/#restaurantes"
   ],
   [
     "en" => "BEAUTY SALONS",
     "es" => "SALONES DE BELLEZA",
-    "link" => "#"
+    "link" => "/places/#boutiques"
   ],
 ]
 ?>

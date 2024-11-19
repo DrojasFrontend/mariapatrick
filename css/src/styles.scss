@@ -327,9 +327,6 @@ img {
 				}
 			}
 
-			&:last-child {
-			}
-
 			a {
 				@media only screen and (min-width: 1024px) {
 					display: flex;
@@ -915,7 +912,6 @@ img {
 		overflow: hidden;
 
 		@media only screen and (min-width: 1024px) {
-			overflow: inherit;
 		}
 		&__bckg {
 			margin-top: -260px;
@@ -1040,6 +1036,170 @@ img {
 				margin-bottom: 50px;
 			}
 		}
+	}
+
+	&Cartagena {
+		background-color: var(--D5D9D0);
+
+		&__title {
+			width: 100%;
+			text-align: center;
+
+			@media only screen and (min-width: 1024px) {
+			}
+		}
+
+		.street {
+			font-family: "Libre Baskerville";
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 22px;
+		}
+
+		.phone {
+			font-family: "Libre Baskerville";
+			font-size: 22px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 28px;
+		}
+
+		&__subtitle {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			align-items: center;
+			
+			@media only screen and (min-width: 1024px) {
+				flex-direction: row;
+				column-gap: 40px;
+				text-align: left;
+			}
+		}
+
+		.heading {
+			&--72 {
+				display: grid;
+				justify-content: center;
+				margin-bottom: 20px;
+
+				@media only screen and (min-width: 1024px) {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					column-gap: 10px;
+				}
+
+				img {
+					width: 100px;
+					@media only screen and (min-width: 1024px) {
+						width: auto;
+					}
+				}
+			}
+
+			&--96 {
+				font-size: 48px;
+				@media only screen and (min-width: 1024px) {
+					font-size: 80px;
+				}
+			}
+		}
+
+		&__img {
+			position: fixed;
+			top: 80px;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			object-fit: cover;
+			object-position: right;
+
+			@media only screen and (min-width: 1024px) {
+				top: 0;
+				height: auto;
+			}
+		}
+
+		&__slick {
+			position: relative;
+		}
+
+		/*.bckg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 388px;
+			background-color: rgba(238, 235, 228, 0.7);
+			z-index: -1;
+
+			@media only screen and (min-width: 1024px) {
+				height: 486px;
+			}
+		} */
+
+		&__wrapper {
+			position: relative;
+			width: 100%;
+			margin: 0 auto;
+			padding: 0 10px;
+
+			@media only screen and (min-width: 1024px) {
+				max-width: 1240px;
+				padding: 0 20px;
+			}
+		}
+
+		&__card {
+			padding: 20px;
+		}
+
+		&__padding {
+			padding: 20px;
+			background-color: var(--F9F6EC);
+			box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.18);
+
+			img {
+				width: 100%;
+				height: 240px;
+				aspect-ratio: 1 / 1;
+				object-fit: cover;
+			}
+		}
+
+		&__info {
+			display: block;
+			padding: 15px 15px 0;
+			text-align: left;
+
+			h2 {
+				position: relative;
+				min-height: 40px;
+				margin: 0 0 20px;
+				padding: 0 0 20px;
+
+				@media only screen and (min-width: 1024px) {
+					min-height: 50px;
+				}
+
+				&:before {
+					content: "";
+					display: block;
+					position: absolute;
+					bottom: 0;
+					width: 60px;
+					height: 1px;
+					background-color: var(--333);
+				}
+			}
+
+			.button--primary {
+				max-width: 145px;
+			}
+		}
+
 	}
 }
 

@@ -49,7 +49,7 @@
 </div> -->
 
 <!-- Header -->
-<header class="header logo-link <?php echo is_page('gifts') || is_page('places') ? 'active' : ''; ?>" data-header>
+<header class="header logo-link <?php echo is_page('gifts') || is_page('pereira') || is_page('places') ? 'active' : ''; ?>" data-header>
   <div class="header__wrapper">
     <a href="/" class="header__logo">
       <img src="<?php echo IMG_BASE . 'logo.svg' ?>" class="" alt="" id="" />
@@ -57,7 +57,7 @@
     <nav>
       <ul class="header__menu">
         <li><a data-link class="header__link" href="/#wedding">WEDDING</a></li>
-        <li><a data-link class="header__link" href="/#pereira">PEREIRA</a></li>
+        <li><a data-link class="header__link" href="/pereira">PEREIRA</a></li>
         <li><a data-link class="header__link-button " href="/#r-s-v-p">R.S.V.P.</a></li>
         <!-- <li><a data-link class="header__link" href="/#rsvp">R.S.V.P.</a></li>
         <li><a data-link class="header__link" href="/#cartagena">CARTAGENA</a></li> -->
@@ -76,7 +76,7 @@
   <nav>
     <ul class="header__menu">
       <li><a data-link class="header__link" href="/#wedding">WEDDING</a></li>
-      <li><a data-link class="header__link" href="/#pereira">PEREIRA</a></li>
+      <li><a data-link class="header__link" href="/pereira">PEREIRA</a></li>
       <li><a data-link class="header__link header__link-button " href="/#r-s-v-p">R.S.V.P.</a></li>
       <!-- <li><a data-link class="header__link-logo" href="/">DANIELA & SPENCER</a></li>
       <li><a data-link class="header__link" href="/#rsvp">R.S.V.P.</a></li>

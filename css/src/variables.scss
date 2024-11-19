@@ -8,6 +8,7 @@
 	--font-bosque: "BOSQUE";
 	--font-nesans: "NesansSemiBold";
 	--font-blancha: "Blancha";
+	--font-wildoaklands: "WildOaklands";
 	--FFF: #fff;
 	--000: #000;
 	--333: #333;
@@ -31,6 +32,9 @@
 	}
 	&--bosque {
 		font-family: var(--font-bosque) !important;
+	}
+	&--wildoaklands {
+		font-family: var(--font-wildoaklands) !important;
 	}
 }
 
@@ -182,7 +186,7 @@
 	}
 
 	&--54 {
-		font-family: "Wild Oaklands";
+		font-family: var(--font-wildoaklands);
 		font-size: 38px;
 		font-style: normal;
 		font-weight: 400;
@@ -194,7 +198,7 @@
 	}
 
 	&--96 {
-		font-family: "Wild Oaklands";
+		font-family: var(--font-wildoaklands);
 		font-size: 45px;
 		font-style: normal;
 		font-weight: 400;
@@ -259,13 +263,13 @@
 	}
 
 	&--small {
-		font-size: 20px;
+		min-width: 140px;
+		font-size: 14px;
 		font-style: normal;
-		font-weight: 600;
+		font-weight: 400;
 		line-height: normal;
-		letter-spacing: 2px;
-		color: var(--836923);
-		border: 1px solid var(--836923);
+		color: var(--8F6C04);
+		border: 1px solid var(--8F6C04);
 	}
 }
 
