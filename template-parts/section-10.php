@@ -88,20 +88,12 @@ $places = [
             "image" => IMG_BASE . 'places-pereira/restaurantes-5.png',
         ],
         [
-            "name" => "La Casa de Socorro",
-            "address" => "Frente al C.C. Getsemaní",
-            "city" => "Getsemaní, Cartagena",
-            "phone" => "57 315 7186666",
-            "link" => "https://www.instagram.com/restaurantelacasadesocorro/",
-            "image" => IMG_BASE . 'places-pereira/restaurantes-6.png',
-        ],
-        [
             "name" => "MIGRATO",
             "address" => "Calle 8 # 19 - 58",
             "city" => "El Mejor Brunch de la Ciudad",
             "phone" => "+57 310 4205742",
             "link" => "#",
-            "image" => IMG_BASE . 'places-pereira/restaurantes-7.png',
+            "image" => IMG_BASE . 'places-pereira/restaurantes-6.png',
         ],
         [
             "name" => "DON CHEMA",
@@ -117,7 +109,7 @@ $places = [
             "city" => "Pizzería",
             "phone" => "+57 (606) 3207820",
             "link" => "#",
-            "image" => IMG_BASE . 'places-pereira/restaurantes-7.png',
+            "image" => IMG_BASE . 'places-pereira/restaurantes-8.png',
         ]
     ]
   ],
