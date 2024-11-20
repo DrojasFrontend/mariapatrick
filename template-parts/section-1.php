@@ -31,10 +31,11 @@
         <p class="heading--14 color--4F4F4F">PEREIRA, COLOMBIA</p>
         <span class="space space--20"></span>
         <a href="https://maps.app.goo.gl/8LRbpukmAz1yokLK9" class="button button--primary button--center" target="_blank">VIEW MAP</a>
-        <span class="space space--30"></span>
+        <span class="space space--30 visibleDesktop"></span>
+        <span class="space space--10 visibleMobile"></span>
 
         <h2 class="heading--54 color--8F6C04">Dress Code</h2>
-        <span class="space space--30"></span>
+        <span class="space space--30 visibleDesktop"></span>
 
         <div class="grid grid--2">
           <div>
