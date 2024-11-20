@@ -38,7 +38,8 @@
       <div class="section5__places">
         <div class="section5__places-left">
           <div class="section5__places-box">
-            <img class="" src="<?php echo IMG_BASE . 'img-8.png'?>" alt="">
+            <img class="visibleDesktop" src="<?php echo IMG_BASE . 'img-8.png'?>" alt="">
+            <img class="visibleMobile" src="<?php echo IMG_BASE . 'cocora-mobile.webp'?>" alt="">
             <div class="section5__places-padding">
               <span class="space space--10"></span>
               <h2 class="heading--28 color--627463">SALENTO y VALLE DEL COCORA</h2>
