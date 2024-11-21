@@ -20,7 +20,7 @@
 	--4F4F4F: #4f4f4f;
 	--A48136: #a48136;
 	--F9F6EC: #f9f6ec;
-	--D5D9D0: #D5D9D0;
+	--D5D9D0: #d5d9d0;
 }
 
 .font {
@@ -201,6 +201,18 @@
 		}
 	}
 
+	&--64 {
+		font-family: var(--font-wildoaklands);
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+
+		@media only screen and (min-width: 1024px) {
+			font-size: 64px;
+		}
+	}
+
 	&--96 {
 		font-family: var(--font-wildoaklands);
 		font-size: 45px;
@@ -271,6 +283,24 @@
 		color: var(--FFF);
 		letter-spacing: 2.8px;
 		background-color: var(--627463);
+
+		&--small {
+			font-family: "Poppins", serif;
+			width: 115px;
+			height: 40px;
+			color: var(--627463);
+			font-size: 14px;
+			text-transform: math-auto;
+			font-weight: 500;
+			letter-spacing: 1.4px;
+			border: 0;
+			border: 1px solid var(--627463);
+
+			&.selected {
+				color: var(--FFF);
+				background-color: var(--627463);
+			}
+		}
 	}
 
 	&--small {

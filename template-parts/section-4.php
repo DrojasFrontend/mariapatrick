@@ -21,7 +21,7 @@
         <p class="heading--18 color--627463 spacing--normal">Por favor, confirma tu asistencia, rellena el siguiente <br> formulario haciendo clic en el botón de abajo.</p>
 
         <span class="space space--50"></span>
-        <button type="button" href="#" class="button button--secondary button--center">R.S.V.P.</button>
+        <button id="openRSVP" type="button" class="button button--secondary button--center">R.S.V.P.</button>
 
         <span class="space space--50"></span>
         <p class="heading--14 color--333 uppercase spacing--6">MORe INFORMATiON / Más Información</p>

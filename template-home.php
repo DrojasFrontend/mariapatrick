@@ -26,6 +26,10 @@ get_header();
     <?php get_template_part('template-parts/section', '6'); ?>
     <!-- SECTION 6 -->
 
+     <!-- SECTION rsvp -->
+     <?php get_template_part('template-parts/section', 'rsvp'); ?>
+    <!-- SECTION rsvp -->
+
  
 
   </main>
