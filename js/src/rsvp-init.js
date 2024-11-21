@@ -386,11 +386,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	window.showThanks = function () {
 		document.getElementById("step5").innerHTML = `
-					<h3>Thanks</h3>
-					<p>GRACIAS</p>
-					<p>Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you.</p>
-					<p>Gracias por confirmar su asistencia a nuestra boda. Estamos muy contentos de compartir este día tan especial contigo.</p>
-					<button class="rsvp-button" onclick="closeModal()">Close</button>
+			<h2 class="heading--64 color--627463">Thanks</h3>
+            <p class="heading--14 color--4F4F4F">GRACIAS</p>
+            <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
+                Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.
+            </p>
+            <span class="space space--10"></span>
+            <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
+                Gracias por confirmar su asistencia a nuestra boda. Estamos muy contentos de compartir este día tan especial con ustedes. Le enviaremos una copia de su RSVP a su correo electrónico.
+            </p>
+			<button class="button button--green" onclick="backToHome()">BACK TO HOME</button>
 			`;
 	};
 
