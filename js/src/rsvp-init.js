@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		function updateLoadingText() {
 			dots = dots.length >= 3 ? "" : dots + ".";
-			submitButton.innerHTML = `Enviando${dots}`;
+			submitButton.innerHTML = `Sending${dots}`;
 		}
 
 		function startLoading() {

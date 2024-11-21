@@ -87,49 +87,49 @@ function send_rsvp_email() {
         );
 
         // Email para admin
-        $subject_admin = 'Nueva confirmación RSVP - ' . $rsvp_data['name'];
+        $subject_admin = 'New RSVP Confirmation - ' . $rsvp_data['name'];
         $message_admin = "
         <html>
         <body style='font-family: Arial, sans-serif;'>
             <div style='max-width: 600px; margin: 0 auto; padding: 20px;'>
-                <h2 style='color: #333;'>Nueva Confirmación RSVP</h2>
+                <h2 style='color: #333;'>New RSVP Confirmation</h2>
                 <div style='background: #f5f5f5; padding: 20px; border-radius: 5px;'>
-                    <p><strong>Invitado:</strong> {$rsvp_data['name']}</p>
-                    <p><strong>Wedding:</strong> " . ($rsvp_data['wedding'] ? 'Confirmado' : 'Declinado') . "</p>
-                    <p><strong>Welcome Cocktail:</strong> " . ($rsvp_data['cocktail'] ? 'Confirmado' : 'Declinado') . "</p>
-                    <p><strong>Teléfono:</strong> {$rsvp_data['phone']}</p>
+                    <p><strong>Guest:</strong> {$rsvp_data['name']}</p>
+                    <p><strong>Wedding:</strong> " . ($rsvp_data['wedding'] ? 'Confirmed' : 'Declined') . "</p>
+                    <p><strong>Welcome Cocktail:</strong> " . ($rsvp_data['cocktail'] ? 'Confirmed' : 'Declined') . "</p>
+                    <p><strong>Phone:</strong> {$rsvp_data['phone']}</p>
                     <p><strong>Email:</strong> {$rsvp_data['email']}</p>
-                    <p><strong>Restricciones:</strong> {$rsvp_data['restrictions']}</p>
+                    <p><strong>Restrictions:</strong> {$rsvp_data['restrictions']}</p>
                 </div>
             </div>
         </body>
         </html>";
 
-        // Email para el invitado
-        $subject_guest = 'Confirmación de tu RSVP - Maria & Patrick Wedding';
+        // Email for guest
+        $subject_guest = 'RSVP Confirmation - Maria & Patrick Wedding';
         $message_guest = "
         <html>
         <body style='font-family: Arial, sans-serif;'>
             <div style='max-width: 600px; margin: 0 auto; padding: 20px;'>
-                <h2 style='color: #333; text-align: center;'>Gracias por confirmar tu asistencia</h2>
+                <h2 style='color: #333; text-align: center;'>Thank you for confirming your attendance</h2>
                 <div style='background: #f5f5f5; padding: 20px; border-radius: 5px; text-align: center;'>
-                    <p>Querido/a {$rsvp_data['name']},</p>
-                    <p>Hemos recibido tu confirmación para nuestra boda. Estamos muy felices de compartir este día tan especial contigo.</p>
+                    <p>Dear {$rsvp_data['name']},</p>
+                    <p>We have received your confirmation for our wedding. We are very happy to share this special day with you.</p>
                     <div style='margin: 20px 0; padding: 15px; background: #fff; border-radius: 5px;'>
-                        <h3 style='color: #666;'>Detalles de tu confirmación:</h3>
+                        <h3 style='color: #666;'>Your confirmation details:</h3>
                         " . ($rsvp_data['wedding'] ? "
                         <p><strong>Wedding</strong><br>
-                        12 de Octubre 2025<br>
+                        October 12th, 2025<br>
                         5:30 P.M.<br>
-                        Hacienda San José, Pareira - Colombia</p>" : "") . "
+                        Hacienda San José, Pereira - Colombia</p>" : "") . "
                         " . ($rsvp_data['cocktail'] ? "
                         <p><strong>Welcome Cocktail</strong><br>
-                        11 de Octubre 2025<br>
+                        October 11th, 2025<br>
                         5:00 P.M.<br>
                         Hacienda San Jorge, Pereira - Colombia</p>" : "") . "
                     </div>
-                    <p>Te enviaremos más detalles próximamente.</p>
-                    <p style='margin-top: 30px;'>Con cariño,<br>Maria & Patrick</p>
+                    <p>We will send you more details soon.</p>
+                    <p style='margin-top: 30px;'>Best regards,<br>Maria & Patrick</p>
                 </div>
             </div>
         </body>
