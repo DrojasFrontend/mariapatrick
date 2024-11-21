@@ -1,9 +1,21 @@
 // js/src/rsvp-init.js
 document.addEventListener("DOMContentLoaded", function () {
+	if (!window.appState) {
+		window.appState = {
+			rsvp: {
+				isLoading: false,
+			},
+		};
+	} else if (!window.appState.rsvp) {
+		window.appState.rsvp = {
+			isLoading: false,
+		};
+	}
+
 	const formData = {
 		name: "",
-        wedding: null,  // Cambiado de false a null
-        cocktail: null, // Cambiado de false a null
+        wedding: null,
+        cocktail: null,
         phone: "",
         email: "",
         restrictions: "",
@@ -40,18 +52,18 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	function resetForm() {
-        formData.name = "";
-        formData.wedding = null;  // Cambiado de false a null
-        formData.cocktail = null; // Cambiado de false a null
-        formData.phone = "";
-        formData.email = "";
-        formData.restrictions = "";
-        formData.numEvents = 0;
+		formData.name = "";
+		formData.wedding = null; // Cambiado de false a null
+		formData.cocktail = null; // Cambiado de false a null
+		formData.phone = "";
+		formData.email = "";
+		formData.restrictions = "";
+		formData.numEvents = 0;
 
-        searchInput.value = "";
-        searchResults.innerHTML = "";
-        showStep(1);
-    }
+		searchInput.value = "";
+		searchResults.innerHTML = "";
+		showStep(1);
+	}
 
 	searchInput.addEventListener("keyup", function (e) {
 		const search = e.target.value.toLowerCase();
@@ -71,10 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	window.selectInvitado = function (nombre, eventos) {
 		formData.name = nombre;
-        formData.numEvents = eventos;
-        formData.wedding = null;  // Inicializar como null
-        formData.cocktail = null; // Inicializar como null
-        showStep(2);
+		formData.numEvents = eventos;
+		formData.wedding = null; // Inicializar como null
+		formData.cocktail = null; // Inicializar como null
+		showStep(2);
 
 		const step2 = document.getElementById("step2");
 		step2.innerHTML = `
@@ -132,9 +144,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Funciones de Cocktail
 	window.showCocktail = function () {
-        if (formData.numEvents !== 2) return;
+		if (formData.numEvents !== 2) return;
 
-        const cocktailHtml = `
+		const cocktailHtml = `
             <h2 class="heading--64 color--627463">Welcome Cocktail</h3>
             <p class="heading--14 color--4F4F4F">COCTEL DE BIENVENIDA</p>
             <span class="space space--20"></span>
@@ -156,21 +168,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 <button class="button button--green" onclick="nextStep(4)">Continue</button>
             </div>
         `;
-        document.getElementById("step3").innerHTML = cocktailHtml;
+		document.getElementById("step3").innerHTML = cocktailHtml;
 
-        // Solo añadir la clase selected si ya se hizo una selección explícita
-        if (formData.cocktail !== null) {
-            const responseDiv = document.querySelector(".guest-response-cocktail");
-            const buttons = responseDiv.querySelectorAll("button");
-            buttons.forEach((button) => {
-                button.classList.remove("selected");
-                if ((formData.cocktail && button.innerText === "Accept") || 
-                    (!formData.cocktail && button.innerText === "Decline")) {
-                    button.classList.add("selected");
-                }
-            });
-        }
-    };
+		// Solo añadir la clase selected si ya se hizo una selección explícita
+		if (formData.cocktail !== null) {
+			const responseDiv = document.querySelector(".guest-response-cocktail");
+			const buttons = responseDiv.querySelectorAll("button");
+			buttons.forEach((button) => {
+				button.classList.remove("selected");
+				if (
+					(formData.cocktail && button.innerText === "Accept") ||
+					(!formData.cocktail && button.innerText === "Decline")
+				) {
+					button.classList.add("selected");
+				}
+			});
+		}
+	};
 
 	window.acceptCocktail = function () {
 		formData.cocktail = true;
@@ -309,6 +323,29 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 
 	window.submitRSVP = function () {
+		const submitButton = document.querySelector('button[onclick="submitRSVP()"]');
+        const originalText = submitButton.innerHTML;
+        let dots = '';
+        let loadingInterval;
+
+		function updateLoadingText() {
+			dots = dots.length >= 3 ? "" : dots + ".";
+			submitButton.innerHTML = `Enviando${dots}`;
+		}
+
+		function startLoading() {
+			submitButton.disabled = true;
+			loadingInterval = setInterval(updateLoadingText, 500);
+			window.appState.rsvp.isLoading = true;
+		}
+
+		function stopLoading() {
+			clearInterval(loadingInterval);
+			submitButton.disabled = false;
+			submitButton.innerHTML = originalText;
+			window.appState.rsvp.isLoading = false;
+		}
+
 		formData.phone = document.getElementById("phone").value;
 		formData.email = document.getElementById("email").value;
 		formData.restrictions = document.getElementById("restrictions").value;
@@ -319,6 +356,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 
 		const submitData = () => {
+			startLoading();
+
 			const formDataToSend = new FormData();
 			formDataToSend.append("action", "send_rsvp_email");
 			formDataToSend.append("rsvp_data", JSON.stringify(formData));
@@ -330,6 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			})
 				.then((response) => response.json())
 				.then((data) => {
+					stopLoading();
 					if (data.success) {
 						showStep(5);
 						showThanks();
@@ -338,6 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					}
 				})
 				.catch((error) => {
+					stopLoading();
 					console.error("Error:", error);
 					alert(
 						`Hubo un error al enviar tu confirmación. Por favor intenta de nuevo.`
@@ -349,6 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			submitData();
 		} else {
 			grecaptcha.ready(function () {
+				startLoading();
 				grecaptcha
 					.execute("6Lc3xoEqAAAAAAkqDAnEarsqXf-6HKCC2G4jogWh", {
 						action: "rsvp",
@@ -367,6 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					})
 					.then((response) => response.json())
 					.then((data) => {
+						stopLoading();
 						if (data.success) {
 							showStep(5);
 							showThanks();
@@ -375,6 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
 						}
 					})
 					.catch((error) => {
+						stopLoading();
 						console.error("Error:", error);
 						alert(
 							`Hubo un error al enviar tu confirmación. Por favor intenta de nuevo.`
