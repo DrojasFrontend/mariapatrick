@@ -4,7 +4,7 @@
     <div class="container">
       <div class="section5__title">
         <h2 class="heading--96 color--8F6C04">Pereira, Colombia</h2>
-        <p class="heading--18 color--4F4F4F">¡TRAVEL TO THE EJE CAFETERO DE COLOMBIA!</p>
+        <p class="heading--18 color--4F4F4F uppercase">Travel to Colombia’s Coffee Region!</p>
       </div>
     </div>
 

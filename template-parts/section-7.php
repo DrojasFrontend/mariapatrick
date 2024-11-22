@@ -45,7 +45,7 @@ $places = [
     "id" => "",
     "name" => "FINCA CAFETERA BUENOS AIRES",
     "img" => IMG_BASE . 'places/place-4.png',
-    "descripcion_en" => "Coming to the coffee land is never complete without tour an authentic coffee farm, and Buenos Aires is out favorite option.",
+    "descripcion_en" => "Coming to the coffee region is never complete without a tour of an authentic coffee farm, and Buenos Aires is our favorite option.",
     "descripcion_es" => "Venir a la tierra del café amerita hacer un tour en una auténtica finca cafetera, y Buenos Aires es nuestra opción favorita para hacerlo.",
     "detalle_1_en" => "<span class='color--8F6C04 uppercase'><strong>Favorite plan:</strong></span> Get to know how the best coffee in the world is farmed. Walk through coffee plantations and learn all about Colombia's best product.",
     "detalle_2_en" => "<span class='color--8F6C04 uppercase'><strong>Must-try:</strong></span> Coffee tasting at the end of the tour.",

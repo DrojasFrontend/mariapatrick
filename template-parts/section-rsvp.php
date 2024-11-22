@@ -94,7 +94,7 @@
             </p>
             <span class="space space--10"></span>
             <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
-                Gracias por confirmar su asistencia a nuestra boda. Estamos muy contentos de compartir este día tan especial con ustedes. Le enviaremos una copia de su RSVP a su correo electrónico.
+                Gracias por confirmar su asistencia a nuestra matrimonio. Estamos muy contentos de compartir este día tan especial con ustedes. Le enviaremos una copia de su RSVP a su correo electrónico.
             </p>
 
             <button class="button button--green" onclick="backToHome()">BACK TO HOME</button>

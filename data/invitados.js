@@ -981,11 +981,6 @@ const invitados = [
 		confirmado: false,
 	},
 	{
-		nombre: "NICOLE CHEGWIN",
-		eventos: 2,
-		confirmado: false,
-	},
-	{
 		nombre: "MARTIN HUERTAS",
 		eventos: 2,
 		confirmado: false,

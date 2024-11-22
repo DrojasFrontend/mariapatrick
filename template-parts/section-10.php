@@ -10,7 +10,7 @@ $places = [
         [
             "name" => "SONESTA <br> HOTEL",
             "address" => "Vía Cerritos. <br> (A las afueras de la ciudad)",
-            "city" => "23 min. en carro del centro de la ciudad. 10 min. en carro del lugar de la boda.",
+            "city" => "23 min. en carro del centro de la ciudad. 10 min. en carro del lugar del matrimonio.",
             "phone" => "+57 (606) 3113600",
             "link" => "#",
             "image" => IMG_BASE . 'places-pereira/hoteles-1.png',
@@ -18,7 +18,7 @@ $places = [
         [
             "name" => "HOTEL BOUTIQUE<br>SAZAGUA",
             "address" => "Vía Cerritos.<br>(A las afueras de la ciudad)",
-            "city" => "30 min. en carro del centro de la ciudad. 15 min. en carro del lugar de la boda.",
+            "city" => "30 min. en carro del centro de la ciudad. 15 min. en carro del lugar del matrimonio.",
             "phone" => "+57 313 6494579",
             "link" => "#",
             "image" => IMG_BASE . 'places-pereira/hoteles-2.png',
@@ -26,7 +26,7 @@ $places = [
         [
             "name" => "VISUS HOTEL<br>BOUTIQUE & SPA",
             "address" => "Vía Cerritos.<br>(A las afueras de la ciudad)",
-            "city" => "30 min en carro del centro de la ciudad. 10 min en carro del lugar de la boda.",
+            "city" => "30 min en carro del centro de la ciudad. 10 min en carro del lugar del matrimonio.",
             "phone" => "+57 318 5173036",
             "link" => "#",
             "image" => IMG_BASE . 'places-pereira/hoteles-3.png',
@@ -34,7 +34,7 @@ $places = [
         [
             "name" => "HOTEL MOVICH<br>PEREIRA",
             "address" => "Cra. 13 # 15 - 71<br>(Dentro de la ciudad)",
-            "city" => "4 min en carro del centro de la ciudad. 30 min en carro del lugar de la boda.",
+            "city" => "4 min en carro del centro de la ciudad. 30 min en carro del lugar del matrimonio.",
             "phone" => "+57 (601) 4824466",
             "link" => "#",
             "image" => IMG_BASE . 'places-pereira/hoteles-4.png',

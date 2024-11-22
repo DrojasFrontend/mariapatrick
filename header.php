@@ -24,8 +24,8 @@
   <meta property="og:url" content="<?=wp_get_canonical_url()?>" />
   <meta property="og:description" content="<?=get_the_excerpt()?>" />
 
-  <meta property="og:image" content="/wp-content/themes/theme-mariapatrick/img/img-3.png" />
-  <meta name="twitter:image" content="/wp-content/themes/theme-mariapatrick/img/img-3.png" />
+  <meta property="og:image" content="/wp-content/themes/theme-mariapatrick/img/preview.webp" />
+  <meta name="twitter:image" content="/wp-content/themes/theme-mariapatrick/img/preview.webp" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
