@@ -43,6 +43,7 @@
                 </div>
             </div>
             <button class="button button--green" onclick="prevStep(1)">Back</button>
+            <span class="space space--10"></span>
             <button class="button button--green" onclick="nextStep(3)">Continue</button>
         </div>
 
@@ -65,6 +66,7 @@
                 </div>
             </div>
             <button class="button button--green" onclick="prevStep(2)">Back</button>
+            <span class="space space--10"></span>
             <button class="button button--green" onclick="nextStep(4)">Continue</button>
         </div>
 
@@ -81,7 +83,9 @@
             <input type="email" id="email">
             <label for="" class="heading--16 color--000" style="font-family: 'Poppins', serif; ">Tell us if you have any food allergies or restrictions. <br> Dinos si tienes alguna alergia o restricción alimentaria.</label>
             <textarea id="restrictions"></textarea>
+            <span class="space space--10"></span>
             <button class="button button--green" onclick="prevStep(3)">Back</button>
+            <span class="space space--10"></span>
             <button class="button button--green" onclick="submitRSVP()">R.S.V.P.</button>
         </div>
 

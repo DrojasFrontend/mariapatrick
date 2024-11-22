@@ -1,5 +1,7 @@
-// js/src/rsvp-init.js
 document.addEventListener("DOMContentLoaded", function () {
+	// =========================================
+	// Configuración inicial y variables globales
+	// =========================================
 	if (!window.appState) {
 		window.appState = {
 			rsvp: {
@@ -14,47 +16,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	const formData = {
 		name: "",
-        wedding: null,
-        cocktail: null,
-        phone: "",
-        email: "",
-        restrictions: "",
-        numEvents: 0
+		wedding: null,
+		cocktail: null,
+		phone: "",
+		email: "",
+		restrictions: "",
+		numEvents: 0,
 	};
 
+	// Detectar tipo de dispositivo para eventos
+	const userAgent = navigator.userAgent.toLowerCase();
+	const eventType = userAgent.match(/(iphone|ipod|ipad)/)
+		? "touchstart"
+		: "click";
+
+	// Elementos del DOM
 	const searchInput = document.getElementById("searchInput");
 	const searchResults = document.getElementById("searchResults");
 	const modal = document.getElementById("rsvpModal");
 	const progressBar = document.querySelector(".rsvpModal__progress-bar");
 	const totalSteps = 5;
 
+	// =========================================
+	// Funciones de utilidad
+	// =========================================
 	function updateProgress(currentStep) {
 		const progressPercentage = (currentStep / totalSteps) * 100;
 		progressBar.style.width = `${progressPercentage}%`;
 	}
 
-	document.getElementById("openRSVP").addEventListener("click", function () {
-		modal.classList.add("rsvpModal__show");
-		updateProgress(1);
-	});
-
-	const closeBtn = document.querySelector(".rsvpModal__close");
-	closeBtn.addEventListener("click", function () {
-		modal.classList.remove("rsvpModal__show");
-		setTimeout(resetForm, 300);
-	});
-
-	window.addEventListener("click", function (e) {
-		if (e.target === modal) {
-			modal.classList.remove("rsvpModal__show");
-			setTimeout(resetForm, 300);
-		}
-	});
-
 	function resetForm() {
 		formData.name = "";
-		formData.wedding = null; // Cambiado de false a null
-		formData.cocktail = null; // Cambiado de false a null
+		formData.wedding = null;
+		formData.cocktail = null;
 		formData.phone = "";
 		formData.email = "";
 		formData.restrictions = "";
@@ -65,174 +59,65 @@ document.addEventListener("DOMContentLoaded", function () {
 		showStep(1);
 	}
 
-	searchInput.addEventListener("keyup", function (e) {
-		const search = e.target.value.toLowerCase();
-		const filtered = invitados.filter((inv) =>
-			inv.nombre.toLowerCase().includes(search)
-		);
+	function updateButtonStyles(button, isAccept, containerClass) {
+		const container = document.querySelector(containerClass);
+		const buttons = container.querySelectorAll(".button--green--small");
 
-		searchResults.innerHTML = filtered
-			.map(
-				(inv) =>
-					`<div class="rsvpModal__result" onclick="selectInvitado('${inv.nombre}', ${inv.eventos})">
-									${inv.nombre}
-							</div>`
-			)
-			.join("");
-	});
-
-	window.selectInvitado = function (nombre, eventos) {
-		formData.name = nombre;
-		formData.numEvents = eventos;
-		formData.wedding = null; // Inicializar como null
-		formData.cocktail = null; // Inicializar como null
-		showStep(2);
-
-		const step2 = document.getElementById("step2");
-		step2.innerHTML = `
-				<h2 class="heading--64 color--627463">Wedding</h3>
-				<p class="heading--14 color--4F4F4F">NUESTRO MATRIMONIO</p>
-				<span class="space space--30"></span>
-				<p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
-				October 12th, 2025 / 12 de Octubre 2025 <br>
-				Hacienda San José, Pereira - Colombia <br>
-				3:30 P.M.
-				</p>
-				<span class="space space--20"></span>
-				<div class="guest-response">
-						<p>${nombre}</p>
-						<div>
-							<button class="button button--green--small" onclick="acceptWedding()">Accept</button>
-							<button class="button button--green--small" onclick="declineWedding()">Decline</button>
-						</div>
-				</div>
-				<div class="navigation-buttons">
-						<button class="button button--green" onclick="prevStep(1)">Back</button>
-						${
-							eventos === 2
-								? '<button class="button button--green" onclick="nextStep(3)">Continue</button>'
-								: '<button class="button button--green" onclick="nextStep(4)">Continue</button>'
-						}
-				</div>
-		`;
-	};
-
-	// Funciones de Wedding
-	window.acceptWedding = function () {
-		formData.wedding = true;
-		const responseDiv = document.querySelector(".guest-response");
-		const buttons = responseDiv.querySelectorAll("button");
-		buttons.forEach((button) => {
-			button.classList.remove("selected");
-			if (button.innerText === "Accept") {
-				button.classList.add("selected");
-			}
+		buttons.forEach((btn) => {
+			btn.classList.remove("selected");
 		});
-	};
 
-	window.declineWedding = function () {
-		formData.wedding = false;
-		const responseDiv = document.querySelector(".guest-response");
-		const buttons = responseDiv.querySelectorAll("button");
-		buttons.forEach((button) => {
-			button.classList.remove("selected");
-			if (button.innerText === "Decline") {
-				button.classList.add("selected");
-			}
-		});
-	};
+		button.classList.add("selected");
 
-	// Funciones de Cocktail
-	window.showCocktail = function () {
-		if (formData.numEvents !== 2) return;
-
-		const cocktailHtml = `
-            <h2 class="heading--64 color--627463">Welcome Cocktail</h3>
-            <p class="heading--14 color--4F4F4F">COCTEL DE BIENVENIDA</p>
-            <span class="space space--20"></span>
-            <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
-                October 11th, 2025 / 11 de Octubre 2025 <br>
-                Hacienda San Jorge, Pereira - Colombia <br>
-                5:00 P.M.
-            </p>
-			<span class="space space--20"></span>
-            <div class="guest-response-cocktail">
-                <p>${formData.name}</p>
-                <div>
-                    <button class="button button--green--small" onclick="acceptCocktail()">Accept</button>
-                    <button class="button button--green--small" onclick="declineCocktail()">Decline</button>
-                </div>
-            </div>
-            <div class="navigation-buttons">
-                <button class="button button--green" onclick="prevStep(2)">Back</button>
-                <button class="button button--green" onclick="nextStep(4)">Continue</button>
-            </div>
-        `;
-		document.getElementById("step3").innerHTML = cocktailHtml;
-
-		// Solo añadir la clase selected si ya se hizo una selección explícita
-		if (formData.cocktail !== null) {
-			const responseDiv = document.querySelector(".guest-response-cocktail");
-			const buttons = responseDiv.querySelectorAll("button");
-			buttons.forEach((button) => {
-				button.classList.remove("selected");
-				if (
-					(formData.cocktail && button.innerText === "Accept") ||
-					(!formData.cocktail && button.innerText === "Decline")
-				) {
-					button.classList.add("selected");
-				}
-			});
+		if (containerClass.includes("cocktail")) {
+			formData.cocktail = isAccept;
+		} else {
+			formData.wedding = isAccept;
 		}
-	};
-
-	window.acceptCocktail = function () {
-		formData.cocktail = true;
-		const responseDiv = document.querySelector(".guest-response-cocktail");
-		const buttons = responseDiv.querySelectorAll("button");
-		buttons.forEach((button) => {
-			button.classList.remove("selected");
-			if (button.innerText === "Accept") {
-				button.classList.add("selected");
-			}
-		});
-	};
-
-	window.declineCocktail = function () {
-		formData.cocktail = false;
-		const responseDiv = document.querySelector(".guest-response-cocktail");
-		const buttons = responseDiv.querySelectorAll("button");
-		buttons.forEach((button) => {
-			button.classList.remove("selected");
-			if (button.innerText === "Decline") {
-				button.classList.add("selected");
-			}
-		});
-	};
-
-	function updateResponse(className, accepted) {
-		const responseDiv = document.querySelector(`.${className}`);
-		const buttons = responseDiv.querySelectorAll(".rsvpModal__button");
-		buttons.forEach((button) => button.classList.remove("selected"));
-		buttons[accepted ? 0 : 1].classList.add("selected");
 	}
 
-	window.nextStep = function (step) {
-		if (formData.numEvents === 1 && step === 3) {
-			showStep(4);
-		} else {
-			showStep(step);
-		}
-	};
+	// =========================================
+	// Funciones de creación de componentes
+	// =========================================
+	function createResponseButtons(containerClass, name) {
+		const html = `
+					<div class="guest-response${
+						containerClass.includes("cocktail") ? "-cocktail" : ""
+					}">
+							<p>${name}</p>
+							<div>
+									<button class="button button--green--small" data-action="accept">Accept</button>
+									<button class="button button--green--small" data-action="decline">Decline</button>
+							</div>
+					</div>
+			`;
 
+		const container = document.querySelector(containerClass);
+		container.innerHTML = html;
+
+		const buttons = container.querySelectorAll(".button--green--small");
+		buttons.forEach((button) => {
+			button.addEventListener(
+				eventType,
+				function (e) {
+					e.preventDefault();
+					const isAccept = this.getAttribute("data-action") === "accept";
+					updateButtonStyles(this, isAccept, containerClass);
+				},
+				{ passive: false }
+			);
+		});
+	}
+
+	// =========================================
+	// Funciones de navegación y pasos
+	// =========================================
 	window.showStep = function (step) {
 		document.querySelectorAll(".rsvpModal__step").forEach((s) => {
 			s.classList.remove("rsvpModal__step--active");
 		});
 
-		// Si intentamos mostrar el paso 3 (Cocktail) pero el invitado tiene solo 1 evento
 		if (step === 3 && formData.numEvents === 1) {
-			// Redirigir al paso 2 (Wedding) si viene de "Back", o al paso 4 (Additional Info) si viene de "Continue"
 			const newStep = document.activeElement?.innerText === "Back" ? 2 : 4;
 			document
 				.getElementById(`step${newStep}`)
@@ -245,53 +130,100 @@ document.addEventListener("DOMContentLoaded", function () {
 		stepElement.classList.add("rsvpModal__step--active");
 		updateProgress(step);
 
-		// Actualizar el contenido según el paso
 		switch (step) {
 			case 2:
-				// Actualizar contenido de Wedding
-				const step2 = document.getElementById("step2");
-				step2.innerHTML = `
-								<h2 class="heading--64 color--627463">Wedding</h3>
-								<p class="heading--14 color--4F4F4F">NUESTRO MATRIMONIO</p>
-								<span class="space space--30"></span>
-								<p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
-								October 12th, 2025 / 12 de Octubre 2025 <br>
-								Hacienda San José, Pereira - Colombia <br>
-								3:30 P.M.
-								</p>
-								<span class="space space--20"></span>
-								<div class="guest-response">
-										<p>${formData.name}</p>
-										<div>
-											<button class="button button--green--small ${
-												formData.wedding ? "selected" : ""
-											}" onclick="acceptWedding()">Accept</button>
-											<button class="button button--green--small ${
-												!formData.wedding ? "selected" : ""
-											}" onclick="declineWedding()">Decline</button>
-										</div>
-								</div>
-								<div class="navigation-buttons">
-										<button class="button button--green" onclick="prevStep(1)">Back</button>
-										${
-											formData.numEvents === 2
-												? '<button class="button button--green" onclick="nextStep(3)">Continue</button>'
-												: '<button class="button button--green" onclick="nextStep(4)">Continue</button>'
-										}
-								</div>
-						`;
+				stepElement.innerHTML = `
+        <h2 class="heading--64 color--627463">Wedding</h2>
+        <p class="heading--14 color--4F4F4F">NUESTRO MATRIMONIO</p>
+        <span class="space space--30"></span>
+        <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
+            October 12th, 2025 / 12 de Octubre 2025 <br>
+            Hacienda San José, Pereira - Colombia <br>
+            3:30 P.M.
+        </p>
+        <span class="space space--20"></span>
+        <div class="wedding-response"></div>
+        <div class="navigation-buttons">
+            <button class="button button--green" data-nav="back">Back</button>
+            <button class="button button--green" data-nav="continue">Continue</button>
+        </div>
+    `;
+
+				createResponseButtons(".wedding-response", formData.name);
+				// Llamamos a la función de manera correcta
+				addNavigationListeners(
+					stepElement,
+					1,
+					formData.numEvents === 2 ? 3 : 4
+				);
 				break;
+
+				createResponseButtons(".wedding-response", formData.name);
+				addNavigationListeners(
+					stepElement,
+					1,
+					formData.numEvents === 2 ? 3 : 4
+				);
+				break;
+
 			case 3:
 				if (formData.numEvents === 2) {
-					showCocktail();
+					stepElement.innerHTML = `
+											<h2 class="heading--64 color--627463">Welcome Cocktail</h2>
+											<p class="heading--14 color--4F4F4F">COCTEL DE BIENVENIDA</p>
+											<span class="space space--20"></span>
+											<p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
+													October 11th, 2025 / 11 de Octubre 2025 <br>
+													Hacienda San Jorge, Pereira - Colombia <br>
+													5:00 P.M.
+											</p>
+											<span class="space space--20"></span>
+											<div class="cocktail-response"></div>
+											<div class="navigation-buttons">
+													<button class="button button--green" data-nav="back">Back</button>
+													<button class="button button--green" data-nav="continue">Continue</button>
+											</div>
+									`;
+
+					createResponseButtons(".cocktail-response", formData.name);
+					addNavigationListeners(stepElement, 2, 4);
 				}
 				break;
+
 			case 4:
 				showAdditionalInfo();
+				break;
+
+			case 5:
+				showThanks();
 				break;
 		}
 	};
 
+	function addNavigationListeners(element, backStep, nextStep) {
+		const navButtons = element.querySelectorAll("[data-nav]");
+		navButtons.forEach((button) => {
+			button.addEventListener(eventType, function (e) {
+				e.preventDefault();
+				const action = this.getAttribute("data-nav");
+				if (action === "back") {
+					prevStep(backStep);
+				} else {
+					nextStep(nextStep);
+				}
+			});
+		});
+	}
+
+	window.nextStep = function (step) {
+		if (formData.numEvents === 1 && step === 3) {
+			showStep(4);
+		} else {
+			showStep(step);
+		}
+	};
+
+	// Función para ir al paso anterior
 	window.prevStep = function (step) {
 		if (step === 3 && formData.numEvents === 1) {
 			showStep(2);
@@ -300,33 +232,44 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	};
 
-	window.showAdditionalInfo = function () {
-		const step4 = document.getElementById("step4");
-		step4.innerHTML = `
-				<h2 class="heading--64 color--627463">Additional Info</h3>
-				<p class="heading--14 color--4F4F4F">INFORMACIÓN ADICIONAL</p>
-				<label for="" class="heading--16 color--000" style="font-family: 'Poppins', serif; ">Phone / Teléfono</label>
-				<input type="text" id="phone" value="${formData.phone}">
-				<span class="space space--10"></span>
-				<label for="" class="heading--16 color--000" style="font-family: 'Poppins', serif; ">Email address (Correo Electrónico)</label>
-				<input type="email" id="email" value="${formData.email}">
-				<span class="space space--10"></span>
-				<label for="" class="heading--16 color--000" style="font-family: 'Poppins', serif; ">Tell us if you have any food allergies or restrictions. <br> Dinos si tienes alguna alergia o restricción alimentaria.</label>
-				<textarea id="restrictions">${formData.restrictions}</textarea>
-				<div class="navigation-buttons">
-						<button class="button button--green" onclick="prevStep(${
-							formData.numEvents === 2 ? 3 : 2
-						})">Back</button>
-						<button class="button button--green" onclick="submitRSVP()">R.S.V.P.</button>
-				</div>
-		`;
+	// =========================================
+	// Funciones de búsqueda y selección
+	// =========================================
+	searchInput.addEventListener("keyup", function (e) {
+		const search = e.target.value.toLowerCase();
+		const filtered = invitados.filter((inv) =>
+			inv.nombre.toLowerCase().includes(search)
+		);
+
+		searchResults.innerHTML = filtered
+			.map(
+				(inv) => `
+							<div class="rsvpModal__result" onclick="selectInvitado('${inv.nombre}', ${inv.eventos})">
+									${inv.nombre}
+							</div>
+					`
+			)
+			.join("");
+	});
+
+	window.selectInvitado = function (nombre, eventos) {
+		formData.name = nombre;
+		formData.numEvents = eventos;
+		formData.wedding = null;
+		formData.cocktail = null;
+		showStep(2);
 	};
 
+	// =========================================
+	// Funciones de envío y finalización
+	// =========================================
 	window.submitRSVP = function () {
-		const submitButton = document.querySelector('button[onclick="submitRSVP()"]');
-        const originalText = submitButton.innerHTML;
-        let dots = '';
-        let loadingInterval;
+		const submitButton = document.querySelector(
+			'button[onclick="submitRSVP()"]'
+		);
+		const originalText = submitButton.innerHTML;
+		let dots = "";
+		let loadingInterval;
 
 		function updateLoadingText() {
 			dots = dots.length >= 3 ? "" : dots + ".";
@@ -363,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			formDataToSend.append("rsvp_data", JSON.stringify(formData));
 			formDataToSend.append("nonce", wpData.nonce);
 
-			return fetch(wpData.ajaxurl, {
+			fetch(wpData.ajaxurl, {
 				method: "POST",
 				body: formDataToSend,
 			})
@@ -372,7 +315,6 @@ document.addEventListener("DOMContentLoaded", function () {
 					stopLoading();
 					if (data.success) {
 						showStep(5);
-						showThanks();
 					} else {
 						throw new Error(data.data || "Error al enviar el formulario");
 					}
@@ -412,7 +354,6 @@ document.addEventListener("DOMContentLoaded", function () {
 						stopLoading();
 						if (data.success) {
 							showStep(5);
-							showThanks();
 						} else {
 							throw new Error(data.data || "Error en la verificación");
 						}
@@ -428,25 +369,70 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	};
 
-	window.showThanks = function () {
-		document.getElementById("step5").innerHTML = `
-			<h2 class="heading--64 color--627463">Thanks</h3>
-            <p class="heading--14 color--4F4F4F">GRACIAS</p>
-            <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
-                Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.
-            </p>
-            <span class="space space--10"></span>
-            <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
-                Gracias por confirmar su asistencia a nuestra boda. Estamos muy contentos de compartir este día tan especial con ustedes. Le enviaremos una copia de su RSVP a su correo electrónico.
-            </p>
-			<button class="button button--green" onclick="backToHome()">BACK TO HOME</button>
-			`;
-	};
+	function addNavigationListeners(element, backStep, nextStep) {
+		const navButtons = element.querySelectorAll("[data-nav]");
+		navButtons.forEach((button) => {
+			button.addEventListener(eventType, function (e) {
+				e.preventDefault();
+				const action = this.getAttribute("data-nav");
+				if (action === "back") {
+					window.prevStep(backStep);
+				} else {
+					window.nextStep(nextStep);
+				}
+			});
+		});
+	}
 
-	window.closeModal = function () {
+	// =========================================
+	// Event Listeners iniciales
+	// =========================================
+	document.getElementById("openRSVP").addEventListener(eventType, function () {
+		modal.classList.add("rsvpModal__show");
+		updateProgress(1);
+	});
+
+	const closeBtn = document.querySelector(".rsvpModal__close");
+	closeBtn.addEventListener(eventType, function () {
 		modal.classList.remove("rsvpModal__show");
 		setTimeout(resetForm, 300);
-	};
+	});
 
+	window.addEventListener(eventType, function (e) {
+		if (e.target === modal) {
+			modal.classList.remove("rsvpModal__show");
+			setTimeout(resetForm, 300);
+		}
+	});
+
+	// =========================================
+	// Estilos
+	// =========================================
+	const style = document.createElement("style");
+	style.textContent = `
+			.button--green--small.selected {
+					background-color: #627463 !important;
+					color: white !important;
+					-webkit-appearance: none;
+					-webkit-tap-highlight-color: transparent;
+					transform: scale(0.98);
+					transition: transform 0.1s ease;
+			}
+			
+			.button--green--small {
+					-webkit-touch-callout: none;
+					-webkit-user-select: none;
+					user-select: none;
+					cursor: pointer;
+					transition: transform 0.1s ease;
+			}
+			
+			.button--green--small:active {
+					transform: scale(0.95);
+			}
+	`;
+	document.head.appendChild(style);
+
+	// Inicialización
 	updateProgress(1);
 });
