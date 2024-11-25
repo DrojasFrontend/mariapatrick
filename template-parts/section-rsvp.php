@@ -102,7 +102,7 @@
             Te enviaremos una copia del RSVP a tu correo electrónico.
             </p>
 
-            <button class="button button--green" onclick="backToHome()">BACK TO HOME</button>
+            <a class="button button--green" href="/">BACK TO HOME</a>
         </div>
     </div>
 </div>
