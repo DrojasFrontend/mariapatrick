@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 											<p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
 													October 11th, 2025 / 11 de Octubre 2025 <br>
 													Hacienda Gavilanes, Pereira - Colombia <br>
-													5:00 P.M.
+													4:00 P.M.
 											</p>
 											<span class="space space--20"></span>
 											<div class="cocktail-response"></div>
