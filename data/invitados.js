@@ -4,7 +4,16 @@ const invitados = [
 		eventos: 1,
 		confirmado: false,
 	},
-
+	{
+		nombre: "MIGUEL GRIEGO",
+		eventos: 1,
+		confirmado: false,
+	},
+	{
+		nombre: "FANNY SOLANO",
+		eventos: 2,
+		confirmado: false,
+	},
 	{
 		nombre: "DORA HOYOS",
 		eventos: 2,
