@@ -126,7 +126,7 @@ function send_rsvp_email() {
                         <p><strong>Welcome Cocktail</strong><br>
                         October 11th, 2025<br>
                         4:00 P.M.<br>
-                        Hacienda San Jorge, Pereira - Colombia</p>" : "") . "
+                        Hacienda Gavilanes, Pereira - Colombia</p>" : "") . "
                     </div>
                     <p>We will send you more details soon.</p>
                     <p style='margin-top: 30px;'>Best regards,<br>Maria & Patrick</p>

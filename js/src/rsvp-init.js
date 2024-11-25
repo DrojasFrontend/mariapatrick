@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 											<span class="space space--20"></span>
 											<p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
 													October 11th, 2025 / 11 de Octubre 2025 <br>
-													Hacienda San Jorge, Pereira - Colombia <br>
+													Hacienda Gavilanes, Pereira - Colombia <br>
 													5:00 P.M.
 											</p>
 											<span class="space space--20"></span>
