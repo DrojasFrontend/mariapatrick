@@ -174,8 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
 											<span class="space space--20"></span>
 											<p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
 													October 11th, 2025 / 11 de Octubre 2025 <br>
-													Hacienda San Jorge, Pereira - Colombia <br>
-													5:00 P.M.
+													Hacienda Gavilanes <br>
+													4:00 P.M.
 											</p>
 											<span class="space space--20"></span>
 											<div class="cocktail-response"></div>
@@ -300,33 +300,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		const submitData = () => {
 			startLoading();
-
+	 
 			const formDataToSend = new FormData();
 			formDataToSend.append("action", "send_rsvp_email");
 			formDataToSend.append("rsvp_data", JSON.stringify(formData));
 			formDataToSend.append("nonce", wpData.nonce);
-
+	 
 			fetch(wpData.ajaxurl, {
-				method: "POST",
-				body: formDataToSend,
+					method: "POST",
+					body: formDataToSend,
 			})
-				.then((response) => response.json())
-				.then((data) => {
+			.then((response) => response.json())
+			.then((data) => {
 					stopLoading();
 					if (data.success) {
-						showStep(5);
+							showStep(5);
 					} else {
-						throw new Error(data.data || "Error al enviar el formulario");
+							throw new Error(data.data || "Error al enviar el formulario");
 					}
-				})
-				.catch((error) => {
+			})
+			.catch((error) => {
 					stopLoading();
 					console.error("Error:", error);
-					alert(
-						`Hubo un error al enviar tu confirmación. Por favor intenta de nuevo.`
-					);
-				});
-		};
+					const errorModal = document.createElement('div');
+					errorModal.className = 'error-modal';
+					errorModal.innerHTML = `
+							<div class="error-content">
+									<p>Hubo un error al enviar tu confirmación. Por favor intenta de nuevo.</p>
+									<button onclick="closeErrorAndShowThanks()">Close</button>
+							</div>
+					`;
+					document.body.appendChild(errorModal);
+			});
+	 };
+	 
+	 function closeErrorAndShowThanks() {
+			document.querySelector('.error-modal').remove();
+			showStep(5);
+	 }
 
 		if (wpData.isLocal) {
 			submitData();

@@ -54,8 +54,8 @@
             <span class="space space--20"></span>
             <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
                 October 11th, 2025 / 11 de Octubre 2025 <br>
-                Hacienda San Jorge, Pereira - Colombia <br>
-                5:00 P.M.
+                Hacienda Gavilanes <br>
+                4:00 P.M.
             </p>
             <span class="space space--30"></span>
             <div class="guest-response">
@@ -98,7 +98,8 @@
             </p>
             <span class="space space--10"></span>
             <p class="heading--16 color--000" style="font-family: 'Poppins', serif; ">
-                Gracias por confirmar su asistencia a nuestra matrimonio. Estamos muy contentos de compartir este día tan especial con ustedes. Le enviaremos una copia de su RSVP a su correo electrónico.
+            Gracias por confirmar tu asistencia a nuestro matrimonio. Estamos muy contentos de compartir este día tan especial con ustedes.
+            Te enviaremos una copia del RSVP a tu correo electrónico.
             </p>
 
             <button class="button button--green" onclick="backToHome()">BACK TO HOME</button>

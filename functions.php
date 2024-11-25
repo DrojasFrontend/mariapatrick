@@ -120,13 +120,13 @@ function send_rsvp_email() {
                         " . ($rsvp_data['wedding'] ? "
                         <p><strong>Wedding</strong><br>
                         October 12th, 2025<br>
-                        5:30 P.M.<br>
+                        3:30 P.M.<br>
                         Hacienda San José, Pereira - Colombia</p>" : "") . "
                         " . ($rsvp_data['cocktail'] ? "
                         <p><strong>Welcome Cocktail</strong><br>
                         October 11th, 2025<br>
-                        5:00 P.M.<br>
-                        Hacienda San Jorge, Pereira - Colombia</p>" : "") . "
+                        4:00 P.M.<br>
+                        Hacienda Gavilanes</p>" : "") . "
                     </div>
                     <p>We will send you more details soon.</p>
                     <p style='margin-top: 30px;'>Best regards,<br>Maria & Patrick</p>

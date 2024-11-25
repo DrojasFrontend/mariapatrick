@@ -18,7 +18,7 @@
 
         <p class="heading--18 color--627463 spacing--normal">Please confirm your attendance, fill out the following <br> form by clicking on the button below.</p>
         <span class="space space--20"></span>
-        <p class="heading--18 color--627463 spacing--normal">Por favor, confirma tu asistencia, rellena el siguiente <br> formulario haciendo clic en el botón de abajo.</p>
+        <p class="heading--18 color--627463 spacing--normal">Por favor, confirma tu asistencia, rellena el siguiente <br> formulario haciendo click en el botón de abajo.</p>
 
         <span class="space space--50"></span>
         <button id="openRSVP" type="button" class="button button--secondary button--center">R.S.V.P.</button>
