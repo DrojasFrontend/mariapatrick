@@ -83,7 +83,7 @@ function send_rsvp_email() {
         $to_admin = 'rsvp@mariaypatrick.com';
         $headers = array(
             'Content-Type: text/html; charset=UTF-8',
-            'From: Maria & Patrick Wedding <rsvp@mariaypatrick.com>'
+            'From: "Maria & Patrick\'s wedding" <rsvp@mariaypatrick.com>'
         );
 
         // Email para admin
@@ -97,7 +97,7 @@ function send_rsvp_email() {
                     <p><strong>Guest:</strong> {$rsvp_data['name']}</p>
                     <p><strong>Wedding:</strong> " . ($rsvp_data['wedding'] ? 'Confirmed' : 'Declined') . "</p>
                     <p><strong>Welcome Cocktail:</strong> " . ($rsvp_data['cocktail'] ? 'Confirmed' : 'Declined') . "</p>
-                    <p><strong>Phone:</strong> {$rsvp_data['phone']}</p>
+                    <p><strong>Address:</strong> {$rsvp_data['phone']}</p>
                     <p><strong>Email:</strong> {$rsvp_data['email']}</p>
                     <p><strong>Restrictions:</strong> {$rsvp_data['restrictions']}</p>
                 </div>

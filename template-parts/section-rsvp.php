@@ -75,7 +75,7 @@
             <h2 class="heading--64 color--627463">Additional Info</h3>
             <p class="heading--14 color--4F4F4F">INFORMACIÓN ADICIONAL</p>
             <span class="space space--20"></span>
-            <label for="" class="heading--16 color--000" style="font-family: 'Poppins', serif; ">Phone / Teléfono</label>
+            <label for="" class="heading--16 color--000" style="font-family: 'Poppins', serif; ">Address / Dirección</label>
             <input type="text" id="phone">
             <span class="space space--10"></span>
             <label for="" class="heading--16 color--000" style="font-family: 'Poppins', serif; ">Email address (Correo Electrónico)</label>
