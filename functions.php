@@ -13,7 +13,7 @@ function configurar_smtp($phpmailer) {
     $phpmailer->Password = 'x6?XNnYsO';
     $phpmailer->SMTPSecure = 'ssl';
     $phpmailer->From = 'rsvp@mariaypatrick.com';
-    $phpmailer->FromName = 'Maria & Patrick Wedding';
+    $phpmailer->FromName = 'Maria & Patrick\'s wedding';
 }
 
 // Agregar logging para debuggear emails
@@ -106,7 +106,7 @@ function send_rsvp_email() {
         </html>";
 
         // Email for guest
-        $subject_guest = 'RSVP Confirmation - Maria & Patrick Wedding';
+        $subject_guest = 'RSVP Confirmation - Maria & Patrick\'s wedding';
         $message_guest = "
         <html>
         <body style='font-family: Arial, sans-serif;'>
@@ -129,7 +129,7 @@ function send_rsvp_email() {
                         Hacienda Gavilanes, Pereira - Colombia</p>" : "") . "
                     </div>
                     <p>We will send you more details soon.</p>
-                    <p style='margin-top: 30px;'>Best regards,<br>Maria & Patrick</p>
+                    <p style='margin-top: 30px;'>Best regards,<br>Maria & Patrick\'s wedding</p>
                 </div>
             </div>
         </body>
