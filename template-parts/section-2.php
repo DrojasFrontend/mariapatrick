@@ -6,7 +6,7 @@
       <span class="space space--30"></span>
       <span class="line line--small"></span>
       <span class="space space--40"></span>
-      <a href="/gifts" class="button button--primary button--center">MORE INFO</a>
+      <a href="https://futbolpazifico.org/pages/maria-y-patrick" class="button button--primary button--center">MORE INFO</a>
     </div>
   </div>
 </section>
