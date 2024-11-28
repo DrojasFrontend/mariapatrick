@@ -1743,5 +1743,5 @@ const invitados = [
 		nombre: "Pedro Malaver",
 		eventos: 2,
 		confirmado: false,
-	},
+	}
 ];
