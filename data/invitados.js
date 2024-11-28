@@ -685,7 +685,7 @@ const invitados = [
 		confirmado: false,
 	},
 	{
-		nombre: "JEAN LUCA FIORI",
+		nombre: "Gian Luca Fiori",
 		eventos: 2,
 		confirmado: false,
 	},
@@ -886,26 +886,6 @@ const invitados = [
 	},
 	{
 		nombre: "CONSTANZA ARANGO",
-		eventos: 1,
-		confirmado: false,
-	},
-	{
-		nombre: "RICHARD DECKERS",
-		eventos: 1,
-		confirmado: false,
-	},
-	{
-		nombre: "MARIA PAULA WITICH",
-		eventos: 1,
-		confirmado: false,
-	},
-	{
-		nombre: "EDUARDO HOLAN",
-		eventos: 1,
-		confirmado: false,
-	},
-	{
-		nombre: "ELENA MEZA",
 		eventos: 1,
 		confirmado: false,
 	},
@@ -1735,12 +1715,32 @@ const invitados = [
 		confirmado: false,
 	},
 	{
-		nombre: "PABLO VILLEGAS",
+		nombre: "JOSE PABLO SACHICA",
 		eventos: 2,
 		confirmado: false,
 	},
 	{
-		nombre: "JOSE PABLO SACHICA",
+		nombre: "Marcela Charria",
+		eventos: 1,
+		confirmado: false,
+	},
+	{
+		nombre: "Arturo Villar",
+		eventos: 1,
+		confirmado: false,
+	},
+	{
+		nombre: "Adriana Gonzalez",
+		eventos: 1,
+		confirmado: false,
+	},
+	{
+		nombre: "Monica Mejia",
+		eventos: 2,
+		confirmado: false,
+	},
+	{
+		nombre: "Pedro Malaver",
 		eventos: 2,
 		confirmado: false,
 	},
